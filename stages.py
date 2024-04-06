@@ -40,7 +40,7 @@ def spell_stages(tries):
 
         (눈_눈)
 
-        Wrong again...
+        Wrong...
 
         """,
         
@@ -49,7 +49,7 @@ def spell_stages(tries):
 
         (¬､¬)
 
-        Wrong...
+        Nope...
 
         """,
     ]
