@@ -1,7 +1,8 @@
-'''
+"""
 List of correct spelling words
 
-'''
+"""
+
 Correct_Words = [
     "mosquito",
     "umbrella",
@@ -33,10 +34,10 @@ Correct_Words = [
     "homeless",
     "hospital",
 ]
-'''
+"""
 List of wrong spelling words
 
-'''
+"""
 Wrong_Words = [
     "mossquito",
     "ummbrela",
@@ -66,5 +67,5 @@ Wrong_Words = [
     "frostraction",
     "helocopter",
     "homelles",
-    "hospitol",  
+    "hospitol",
 ]

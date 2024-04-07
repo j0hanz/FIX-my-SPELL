@@ -7,8 +7,6 @@ def spell_stages(tries):
         THATS IT! GAME OVER!
 
         """,
-        
-        
         """
 
         (`益´)
@@ -16,8 +14,6 @@ def spell_stages(tries):
         1 more wrong and you are OUT!
 
         """,
-        
-        
         """
 
         (⩺︷⩹)
@@ -25,8 +21,6 @@ def spell_stages(tries):
         Please not again!
 
         """,
-        
-        
         """
 
         (⋋▂⋌)
@@ -34,8 +28,6 @@ def spell_stages(tries):
         Noooo!
 
         """,
-        
-        
         """
 
         (눈_눈)
@@ -43,11 +35,16 @@ def spell_stages(tries):
         Wrong...
 
         """,
-        
-        
         """
 
         (¬､¬)
+
+        Nope...
+
+        """,
+        """
+
+        (─‿─)
 
         Nope...
 
