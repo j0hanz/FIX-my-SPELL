@@ -1,32 +1,93 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Contents :mag_right:
 
-Welcome,
+- [FIX-my-SPELL Game](#fix-my-spell-game)
+  - [User Stories](#user-stories)
+    - [User Goals](#user-goals)
+  - [User Experience](#user-experience)
+- [Features](#features)
+  - [Future Implementations](future-implementations)
+- [How to play](#how-to-play)
+- [Technologies used](#technologies-used)
+- [Testing](#testing)
+    - [Manual testing](#manual-testing)
+    - [Automated testing](#automated-testing)
+  - [Bugs](#bugs)
+    - [Known Issues](#known-issues)
+    - [Fixed bugs](#fixed-bugs)
+- [Deployment](#deployment)
+- [Credits](#credits)
+    - [Code](#code)
+    - [Acknowledgements](#acknowledgements)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+# FIX-my-SPELL Game
 
-## Reminders
+xxxxxx
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## User Stories
 
-## Creating the Heroku app
+xxxxxx
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+### User Goals
 
-1. `heroku/python`
-2. `heroku/nodejs`
+xxxxxx
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## User Experience
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+xxxxxx
 
-Connect your GitHub repository and deploy as normal.
+# Features
 
-## Constraints
+xxxxxx
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## Future Implementations
 
----
+xxxxxx
 
-Happy coding!
+# How to play
+
+xxxxxx
+
+# Technologies used
+
+xxxxxx
+
+# Testing
+
+xxxxxx
+
+### Manual testing
+
+xxxxxx
+
+### Automated testing
+
+xxxxxx
+
+## Bugs
+
+xxxxxx
+
+### Known Issues
+
+xxxxxx
+
+### Fixed bugs
+
+xxxxxx
+
+# Deployment
+
+xxxxxx
+
+# Credits
+
+xxxxxx
+
+### Code
+
+xxxxxx
+
+### Acknowledgements
+
+xxxxxx
+
