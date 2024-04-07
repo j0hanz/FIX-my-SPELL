@@ -32,6 +32,8 @@ def game_rules(data):
 
     if data == "Y":
         print(word_art.instructions)
+        input("Press any key")
+        clear_terminal()
         return True
 
     elif data == "N":
@@ -39,7 +41,7 @@ def game_rules(data):
 
     else:
         print("Invalid choice. Please enter 'Y' or 'N'.")
-
+    clear_terminal()
 
 def start_game():
     print(word_art.game)
@@ -74,6 +76,7 @@ def main():
     text_effect(f"Hello {name}! Welcome to FIX-my-SPELL!")
     while True:
         rules_input = input("Do you want to read the rules? (Y/N): ").upper()
+        clear_terminal()
         if game_rules(rules_input):
             break
 
