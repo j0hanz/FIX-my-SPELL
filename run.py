@@ -41,7 +41,8 @@ def game_rules(data):
 
     if data == "Y":
         print(word_art.instructions)
-        input("Press any key")
+        text_effect("Press enter to continue")
+        input("")
         clear_terminal()
         return True
     elif data == "N":
@@ -80,8 +81,9 @@ def thank_you_message():
 
 def welcome_message():
     print(word_art.welcome)
-    print("WELCOME TO FIX-my-SPELL!")
-    text_effect("Starting in...")
+    text_effect("WELCOME TO FIX-my-SPELL!")
+    time.sleep(1)
+    text_effect_fast("Starting in...")
     print("3")
     time.sleep(1)
     print("2")
@@ -129,9 +131,9 @@ def main():
             break
 
     while True:
-        text_effect(f"Press any key to start the game {user_name}!  (✪‿✪) ")
+        text_effect(f"Press enter to start the game {user_name}!  (✪‿✪) ")
         input("")
-        text_effect("Starting in...")
+        text_effect_fast("Starting in...")
         print("3")
         time.sleep(1)
         print("2")
