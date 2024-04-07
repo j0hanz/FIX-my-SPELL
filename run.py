@@ -1,7 +1,22 @@
 import word_art
 import os
+import time
+import sys
 from stages import spell_stages
 
+
+def text_effect(text):
+    '''
+    Create typing effect to improve user experience.
+    '''
+    for letter in text:
+        if letter == '\n':
+            print("\n")
+        else:
+            sys.stdout.write(letter)
+            sys.stdout.flush()
+            time.sleep(0.06)
+    print()
 
 def clear_terminal():
     """
@@ -29,6 +44,19 @@ def game_rules(data):
 def start_game():
     print(word_art.game)
 
+def play_again():
+        while True:
+            text_effect("Do you want to restart the game? (Y/N): ")
+            restart = input("").upper()
+            if restart == "Y":
+                return True
+            if restart == "N":
+                print("Thanks for playing!")
+                clear_terminal()
+                main()
+                return False
+            else:
+                print("Invalid choice. Please enter 'Y' or 'N'.\n")
 
 def main():
     print(word_art.welcome)
@@ -43,18 +71,24 @@ def main():
 
     clear_terminal()
 
-    print(f"Hello {name}! Welcome to FIX-my-SPELL!".ljust(200))
+    text_effect(f"Hello {name}! Welcome to FIX-my-SPELL!")
     while True:
         rules_input = input("Do you want to read the rules? (Y/N): ").upper()
         if game_rules(rules_input):
             break
 
     while True:
-        level_input = input("Press any key to start the game!  (✪‿✪) ")
+        text_effect("Press any key to start the game!  (✪‿✪) ")
+        input("")
 
         break
     clear_terminal()
     start_game()
+
+    if play_again():
+        clear_terminal()
+        start_game()
+        
 
 
 main()
