@@ -81,8 +81,13 @@ def thank_you_message():
 def welcome_message():
     print(word_art.welcome)
     print("WELCOME TO FIX-my-SPELL!")
-    text_effect("Starting in 3 sec")
-    time.sleep(3)
+    text_effect("Starting in...")
+    print("3")
+    time.sleep(1)
+    print("2")
+    time.sleep(1)
+    print("1")
+    time.sleep(1)
     clear_terminal()
 
 
