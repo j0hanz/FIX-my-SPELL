@@ -121,7 +121,7 @@ def main():
     user_name = user_input()
     clear_terminal()
     print("⊂(◉‿◉)つ".ljust(400))
-    text_effect(f"Hello {user_name}!\nWelcome to FIX-my-SPELL!")
+    text_effect(f"Hello {user_name}!\n")
     time.sleep(1)
     while True:
         text_effect("Do you want to read the rules?")
