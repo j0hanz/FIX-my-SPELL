@@ -168,6 +168,7 @@ def main():
     print(word_art.welcome)
     user_name = user_input()
     clear_terminal()
+    print(word_art.welcome)
     print("⊂(◉‿◉)つ".ljust(400))
     text_effect(f"Hello {user_name}!\n")
     time.sleep(1)
