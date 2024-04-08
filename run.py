@@ -60,6 +60,7 @@ def user_input():
             break
     return user_name
 
+
 def game_rules(data):
 
     if data == "Y":
@@ -85,6 +86,7 @@ def choose_word(used_words):
         return random.choice(Words)
     return random.choice(available_words)
 
+
 def scramble_word(word):
     """
     Scrambles the letters of the word, keeping the first and last letters unchanged
@@ -93,8 +95,7 @@ def scramble_word(word):
     last_letter = word[-1]
     middle_letters = list(word[1:-1])
     random.shuffle(middle_letters)
-    return first_letter + ''.join(middle_letters) + last_letter
-
+    return first_letter + "".join(middle_letters) + last_letter
 
 
 def start_game():
@@ -108,11 +109,11 @@ def start_game():
             break
         used_words.append(word)
         scrambled_word = scramble_word(word)
-        
+
         print(scrambled_word.ljust(400))
         text_effect("Enter your guess: ")
         guess = input("").lower()
-        
+
         if guess == word:
             print("Good job!.")
             time.sleep(2)
@@ -123,6 +124,7 @@ def start_game():
             time.sleep(2)
             clear_terminal()
             print(word_art.game)
+
 
 def play_again():
     while True:
@@ -159,8 +161,6 @@ def welcome_message():
     print("1")
     time.sleep(1)
     clear_terminal()
-
-
 
 
 def main():
