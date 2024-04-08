@@ -47,6 +47,12 @@ def clear_terminal():
     """
     os.system("cls" if os.name == "nt" else "clear")
 
+def clear_screen():
+    '''
+    To clear screen after ever round to enhance user experience
+    '''
+    sys.stdout.write("\033c")
+    sys.stdout.flush()
 
 def user_input():
     """
@@ -127,7 +133,12 @@ def start_game():
     used_words = []
     words_to_play = 10
     for _ in range(words_to_play):
-        # Choose a word that hasn't been used yet and scramble it
+        """
+
+        Choose a word that hasn't been used yet and scramble it
+
+        """
+        
         word = choose_word(used_words)
         if word is None:
             break
@@ -141,12 +152,12 @@ def start_game():
         if guess == word:
             print("Good job!.")
             time.sleep(2)
-            clear_terminal()
+            clear_screen()
             print(word_art.game)
         else:
             print("Nope...", word)
             time.sleep(2)
-            clear_terminal()
+            clear_screen()
             print(word_art.game)
 
 
