@@ -47,12 +47,14 @@ def clear_terminal():
     """
     os.system("cls" if os.name == "nt" else "clear")
 
+
 def clear_screen():
-    '''
+    """
     To clear screen after ever round to enhance user experience
-    '''
+    """
     sys.stdout.write("\033c")
     sys.stdout.flush()
+
 
 def user_input():
     """
@@ -63,6 +65,7 @@ def user_input():
     user_name = ""
     while True:
         text_effect("What is your name?")
+        time.sleep(0.5)
         text_effect_fast("Press enter If you dont want to disclose your name")
         user_name = input("").capitalize()
         if user_name == "":
@@ -138,7 +141,7 @@ def start_game():
         Choose a word that hasn't been used yet and scramble it
 
         """
-        
+
         word = choose_word(used_words)
         if word is None:
             break
@@ -150,12 +153,16 @@ def start_game():
         guess = input("").lower()
 
         if guess == word:
-            print("Good job!.")
+            print("Good job!.".ljust(400))
+            time.sleep(1)
+            text_effect_fast("Moving on to the next word...")
             time.sleep(2)
             clear_screen()
             print(word_art.game)
         else:
-            print("Nope...", word)
+            print("Nope...", word.ljust(400))
+            time.sleep(2)
+            text_effect_fast("Moving on to the next word...")
             time.sleep(2)
             clear_screen()
             print(word_art.game)
@@ -167,18 +174,21 @@ def play_again():
     Then the game Is finished, the game will ask If User wants to play again.
 
     """
-    while True:
-        text_effect("Do you want to restart the game?")
-        restart = input("(Y/N): ").upper()
-        if restart == "Y":
-            return True
-        if restart == "N":
-            clear_terminal()
-            thank_you_message()
-            main()
-            return False
-        else:
-            print("Invalid choice. Please enter 'Y' or 'N'.\n")
+
+    text_effect("Do you want to restart the game?")
+    restart = input("(Y/N): ").upper()
+    if restart == "Y":
+        text_effect_fast("Great! Restarting the game...")
+        time.sleep(2)
+        return True
+
+    elif restart == "N":
+        clear_terminal()
+        thank_you_message()
+        main()
+        return False
+    else:
+        print("Invalid choice. Please enter 'Y' or 'N'.\n")
 
 
 def thank_you_message():
