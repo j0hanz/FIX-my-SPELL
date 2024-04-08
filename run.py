@@ -7,6 +7,11 @@ from words import Words
 
 
 def text_effect_fast(text):
+    """
+
+    Create typing effect to improve user experience.
+
+    """
     for letter in text:
         if letter == "\n":
             print("\n")
@@ -19,7 +24,9 @@ def text_effect_fast(text):
 
 def text_effect(text):
     """
+
     Create typing effect to improve user experience.
+
     """
     for letter in text:
         if letter == "\n":
@@ -27,21 +34,25 @@ def text_effect(text):
         else:
             sys.stdout.write(letter)
             sys.stdout.flush()
-            time.sleep(0.06)
+            time.sleep(0.05)
     print()
 
 
 def clear_terminal():
     """
+
     Clears the terminal.
     https://stackoverflow.com/questions/2084508/clear-terminal-in-python
+
     """
     os.system("cls" if os.name == "nt" else "clear")
 
 
 def user_input():
     """
+
     Function to request a user's name and return it.
+
     """
     user_name = ""
     while True:
@@ -62,7 +73,11 @@ def user_input():
 
 
 def game_rules(data):
+    """
 
+    Data for rules
+
+    """
     if data == "Y":
         print(word_art.instructions)
         text_effect("Press enter to continue")
@@ -78,7 +93,9 @@ def game_rules(data):
 
 def choose_word(used_words):
     """
+
     Randomly selects a word from the list that hasn't been used yet
+
     """
     available_words = [word for word in Words if word not in used_words]
     if not available_words:
@@ -89,7 +106,9 @@ def choose_word(used_words):
 
 def scramble_word(word):
     """
-    Scrambles the letters of the word, keeping the first and last letters unchanged
+
+    Scrambles the letters of the word, here I have decided to keep the first and last letters unchanged
+
     """
     first_letter = word[0]
     last_letter = word[-1]
@@ -99,6 +118,11 @@ def scramble_word(word):
 
 
 def start_game():
+    """
+
+    Function that starts the game.
+
+    """
     print(word_art.game)
     used_words = []
     words_to_play = 10
@@ -127,6 +151,11 @@ def start_game():
 
 
 def play_again():
+    """
+
+    Then the game Is finished, the game will ask If User wants to play again.
+
+    """
     while True:
         text_effect("Do you want to restart the game?")
         restart = input("(Y/N): ").upper()
@@ -142,6 +171,12 @@ def play_again():
 
 
 def thank_you_message():
+    """
+
+    If user doesn't want to continue playing,
+    a thank you message will appear and heads back to start screen.
+
+    """
     text_effect("Thanks for playing!")
     time.sleep(1)
     text_effect_fast("Heading back to start menu...")
@@ -150,6 +185,12 @@ def thank_you_message():
 
 
 def welcome_message():
+    """
+
+    Function that welcomes users to the game,
+    this Is the first function that will appear on the screen.
+
+    """
     print(word_art.welcome)
     text_effect("WELCOME TO FIX-my-SPELL!")
     time.sleep(1)
@@ -164,6 +205,11 @@ def welcome_message():
 
 
 def main():
+    """
+
+    Main function
+
+    """
     welcome_message()
     print(word_art.welcome)
     user_name = user_input()
