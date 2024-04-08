@@ -39,6 +39,27 @@ def clear_terminal():
     os.system("cls" if os.name == "nt" else "clear")
 
 
+def user_input():
+    """
+    Function to request a user's name and return it.
+    """
+    user_name = ""
+    while True:
+        text_effect("What is your name?")
+        text_effect_fast("Press enter If you dont want to disclose your name")
+        user_name = input("").capitalize()
+        if user_name == "":
+            user_name = "User"
+            break
+        elif not user_name.isalpha():
+            clear_terminal()
+            print("(ᴗ˳ᴗ)".ljust(400))
+            text_effect(f"{user_name}?\nIs that really your name?")
+            text_effect("Nah try again.\n")
+        else:
+            break
+    return user_name
+
 def game_rules(data):
 
     if data == "Y":
@@ -79,20 +100,29 @@ def scramble_word(word):
 def start_game():
     print(word_art.game)
     used_words = []
-    while True:
-
+    words_to_play = 10
+    for _ in range(words_to_play):
+        # Choose a word that hasn't been used yet and scramble it
         word = choose_word(used_words)
+        if word is None:
+            break
         used_words.append(word)
         scrambled_word = scramble_word(word)
         
-        print("Scrambled word:", scrambled_word)
-        
-        guess = input("Enter your guess: ").lower()
+        print(scrambled_word.ljust(400))
+        text_effect("Enter your guess: ")
+        guess = input("").lower()
         
         if guess == word:
             print("Good job!.")
+            time.sleep(2)
+            clear_terminal()
+            print(word_art.game)
         else:
             print("Nope...", word)
+            time.sleep(2)
+            clear_terminal()
+            print(word_art.game)
 
 def play_again():
     while True:
@@ -131,26 +161,6 @@ def welcome_message():
     clear_terminal()
 
 
-def user_input():
-    """
-    Function to request a user's name and return it.
-    """
-    user_name = ""
-    while True:
-        text_effect("What is your name?")
-        text_effect_fast("Press enter If you dont want to disclose your name")
-        user_name = input("").capitalize()
-        if user_name == "":
-            user_name = "User"
-            break
-        elif not user_name.isalpha():
-            clear_terminal()
-            print("(ᴗ˳ᴗ)".ljust(400))
-            text_effect(f"{user_name}?\nIs that really your name?")
-            text_effect("Nah try again.\n")
-        else:
-            break
-    return user_name
 
 
 def main():
