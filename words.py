@@ -1,9 +1,9 @@
 """
-List of correct spelling words
+List of words
 
 """
 
-Correct_Words = [
+Words = [
     "mosquito",
     "umbrella",
     "bicycle",
@@ -33,39 +33,4 @@ Correct_Words = [
     "helicopter",
     "homeless",
     "hospital",
-]
-"""
-List of wrong spelling words
-
-"""
-Wrong_Words = [
-    "mossquito",
-    "ummbrela",
-    "biocykle",
-    "mottorcycel",
-    "bactteriom",
-    "termmoneter",
-    "calkullator",
-    "microfone",
-    "commpas",
-    "scoohl",
-    "feether",
-    "chourch",
-    "aniverssari",
-    "appartment",
-    "bathrom",
-    "brekfast",
-    "cathegory",
-    "chokolate",
-    "cigarett",
-    "consum",
-    "demacracy",
-    "diference",
-    "distinuisch",
-    "edducasion",
-    "emmergenci",
-    "frostraction",
-    "helocopter",
-    "homelles",
-    "hospitol",
 ]

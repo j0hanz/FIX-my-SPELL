@@ -2,6 +2,8 @@ import word_art
 import os
 import time
 import sys
+import random
+from words import Words
 
 
 def text_effect_fast(text):
@@ -52,9 +54,45 @@ def game_rules(data):
         print("Invalid choice. Please enter 'Y' or 'N'.")
 
 
+def choose_word(used_words):
+    """
+    Randomly selects a word from the list that hasn't been used yet
+    """
+    available_words = [word for word in Words if word not in used_words]
+    if not available_words:
+        print("End")
+        return random.choice(Words)
+    return random.choice(available_words)
+
+def scramble_word(word):
+    """
+    Scrambles the letters of the word, keeping the first and last letters unchanged
+    """
+    first_letter = word[0]
+    last_letter = word[-1]
+    middle_letters = list(word[1:-1])
+    random.shuffle(middle_letters)
+    return first_letter + ''.join(middle_letters) + last_letter
+
+
+
 def start_game():
     print(word_art.game)
+    used_words = []
+    while True:
 
+        word = choose_word(used_words)
+        used_words.append(word)
+        scrambled_word = scramble_word(word)
+        
+        print("Scrambled word:", scrambled_word)
+        
+        guess = input("Enter your guess: ").lower()
+        
+        if guess == word:
+            print("Good job!.")
+        else:
+            print("Nope...", word)
 
 def play_again():
     while True:
@@ -94,10 +132,10 @@ def welcome_message():
 
 
 def user_input():
-    '''
+    """
     Function to request a user's name and return it.
-    '''
-    user_name = ''
+    """
+    user_name = ""
     while True:
         text_effect("What is your name?")
         text_effect_fast("Press enter If you dont want to disclose your name")
