@@ -5,6 +5,9 @@ import sys
 import random
 from words import Words
 
+MAX_ATTEMPTS = 3
+WORDS_TO_PLAY = 10
+
 
 def text_effect_fast(text):
     """
@@ -134,7 +137,8 @@ def start_game():
     """
     print(word_art.game)
     used_words = []
-    words_to_play = 10
+    words_to_play = WORDS_TO_PLAY
+    attempts = MAX_ATTEMPTS
     for _ in range(words_to_play):
         """
 
@@ -143,11 +147,24 @@ def start_game():
         """
 
         word = choose_word(used_words)
+
+        if attempts == 0:
+            
+            clear_screen()
+            print(word_art.lose.ljust(400))
+            print("(눈_눈)".ljust(400))
+            print("All attempts are used, you lost the game...")
+            time.sleep(4)
+            text_effect_fast("heading back...")
+            time.sleep(2)
+            clear_screen()
+            play_again()
+
         if word is None:
             break
+
         used_words.append(word)
         scrambled_word = scramble_word(word)
-
         print(scrambled_word.ljust(400))
         text_effect("Enter your guess: ")
         guess = input("").lower()
@@ -155,14 +172,15 @@ def start_game():
         if guess == word:
             print("Good job!.".ljust(400))
             time.sleep(1)
-            text_effect_fast("Moving on to the next word...")
+            text_effect_fast("Moving on...")
             time.sleep(2)
             clear_screen()
             print(word_art.game)
         else:
-            print("Nope...", word.ljust(400))
+            print(f"Nope... You have {attempts} attempts left.", word.ljust(400))
+            attempts -= 1
             time.sleep(2)
-            text_effect_fast("Moving on to the next word...")
+            text_effect_fast("Moving on...")
             time.sleep(2)
             clear_screen()
             print(word_art.game)
@@ -174,12 +192,14 @@ def play_again():
     Then the game Is finished, the game will ask If User wants to play again.
 
     """
-
+    print(word_art.welcome)
     text_effect("Do you want to restart the game?")
     restart = input("(Y/N): ").upper()
     if restart == "Y":
         text_effect_fast("Great! Restarting the game...")
         time.sleep(2)
+        clear_terminal()
+        start_game()
         return True
 
     elif restart == "N":
@@ -198,6 +218,7 @@ def thank_you_message():
     a thank you message will appear and heads back to start screen.
 
     """
+    print(word_art.welcome)
     text_effect("Thanks for playing!")
     time.sleep(1)
     text_effect_fast("Heading back to start menu...")
@@ -247,6 +268,7 @@ def main():
             break
 
     while True:
+        print(word_art.welcome)
         text_effect(f"Press enter to start the game {user_name}!  (✪‿✪) ")
         input("")
         text_effect_fast("Starting in...")
