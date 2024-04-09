@@ -1,3 +1,4 @@
+from colorama import Fore
 import word_art
 import os
 import time
@@ -7,6 +8,12 @@ from words import Words
 
 MAX_ATTEMPTS = 3
 WORDS_TO_PLAY = 10
+
+
+class color:
+   BOLD = '\033[1m'
+   UNDERLINE = '\033[2m'
+   END = '\033[0m'
 
 
 def text_effect_fast(text):
@@ -76,7 +83,7 @@ def user_input():
             break
         elif not user_name.isalpha():
             clear_terminal()
-            print("(ᴗ˳ᴗ)".ljust(400))
+            print(Fore.YELLOW + "(ᴗ˳ᴗ)".ljust(400) + Fore.RESET)
             text_effect(f"{user_name}?\nIs that really your name?")
             text_effect("Nah try again.\n")
         else:
@@ -135,7 +142,8 @@ def start_game():
     Function that starts the game.
 
     """
-    print(word_art.game)
+    print(Fore.GREEN + word_art.game)
+    print(Fore.RESET)
     used_words = []
     words_to_play = WORDS_TO_PLAY
     attempts = MAX_ATTEMPTS
@@ -145,18 +153,19 @@ def start_game():
         Choose a word that hasn't been used yet and scramble it
 
         """
-
         word = choose_word(used_words)
 
         if attempts == 0:
             
             clear_screen()
-            print(word_art.lose.ljust(400))
-            print("(눈_눈)".ljust(400))
-            print("All attempts are used, you lost the game...")
-            time.sleep(4)
+            print(Fore.RED + word_art.lose.ljust(400) + Fore.RESET)
+            print(Fore.YELLOW + "(눈_눈)".ljust(400) + Fore.RESET)                                                         
+            text_effect("All attempts are used, you lost the game...")
+            time.sleep(3)
+            text_effect_fast("Press 'Enter' to move on.")
+            input("")
             text_effect_fast("heading back...")
-            time.sleep(2)
+            time.sleep(1)
             clear_screen()
             play_again()
 
@@ -165,25 +174,30 @@ def start_game():
 
         used_words.append(word)
         scrambled_word = scramble_word(word)
-        print(scrambled_word.ljust(400))
-        text_effect("Enter your guess: ")
+        print(Fore.CYAN + scrambled_word + Fore.RESET)
+        print(color.BOLD + "_________________" + color.END .ljust(300))
+        text_effect("Enter your guess:")
         guess = input("").lower()
+        print("".ljust(250))
 
         if guess == word:
+            print(Fore.YELLOW + "⊂(◉‿◉)つ".ljust(400) + Fore.RESET)
             print("Good job!.".ljust(400))
             time.sleep(1)
             text_effect_fast("Moving on...")
             time.sleep(2)
             clear_screen()
-            print(word_art.game)
+            print(Fore.GREEN + word_art.game + Fore.RESET)
         else:
-            print(f"Nope... You have {attempts} attempts left.", word.ljust(400))
+            print(Fore.YELLOW + "(눈_눈)".ljust(400) + Fore.RESET)  
+            print(f"Nope... The right word was: ", word.ljust(400))
+            print(f"You have {attempts} attempts left.")
             attempts -= 1
-            time.sleep(2)
+            time.sleep(3)
             text_effect_fast("Moving on...")
             time.sleep(2)
             clear_screen()
-            print(word_art.game)
+            print(Fore.GREEN + word_art.game + Fore.RESET)
 
 
 def play_again():
@@ -192,7 +206,8 @@ def play_again():
     Then the game Is finished, the game will ask If User wants to play again.
 
     """
-    print(word_art.welcome)
+    clear_terminal()
+    print(Fore.BLUE + word_art.welcome + Fore.RESET)
     text_effect("Do you want to restart the game?")
     restart = input("(Y/N): ").upper()
     if restart == "Y":
@@ -218,7 +233,7 @@ def thank_you_message():
     a thank you message will appear and heads back to start screen.
 
     """
-    print(word_art.welcome)
+    print(Fore.BLUE +  word_art.welcome + Fore.RESET)
     text_effect("Thanks for playing!")
     time.sleep(1)
     text_effect_fast("Heading back to start menu...")
@@ -233,7 +248,7 @@ def welcome_message():
     this Is the first function that will appear on the screen.
 
     """
-    print(word_art.welcome)
+    print(Fore.BLUE + word_art.welcome + Fore.RESET)
     text_effect("WELCOME TO FIX-my-SPELL!")
     time.sleep(1)
     text_effect_fast("Starting in...")
@@ -253,11 +268,11 @@ def main():
 
     """
     welcome_message()
-    print(word_art.welcome)
+    print(Fore.BLUE + word_art.welcome + Fore.RESET)
     user_name = user_input()
     clear_terminal()
-    print(word_art.welcome)
-    print("⊂(◉‿◉)つ".ljust(400))
+    print(Fore.BLUE + word_art.welcome + Fore.RESET)
+    print(Fore.YELLOW + "⊂(◉‿◉)つ".ljust(400) + Fore.RESET)
     text_effect(f"Hello {user_name}!\n")
     time.sleep(1)
     while True:
@@ -268,8 +283,9 @@ def main():
             break
 
     while True:
-        print(word_art.welcome)
-        text_effect(f"Press enter to start the game {user_name}!  (✪‿✪) ")
+        print(Fore.BLUE + word_art.welcome + Fore.RESET)
+        print(Fore.YELLOW + "(✪‿✪)" + Fore.RESET.ljust(400))
+        text_effect(f"Press enter to start the game {user_name}!")
         input("")
         text_effect_fast("Starting in...")
         print("3")
@@ -278,10 +294,12 @@ def main():
         time.sleep(1)
         print("1")
         time.sleep(1)
-
+        clear_terminal()
+        start_game()
         break
-    clear_terminal()
-    start_game()
+    
+    #clear_terminal()
+    #start_game()
 
     if play_again():
         clear_terminal()
