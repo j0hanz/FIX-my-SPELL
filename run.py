@@ -176,11 +176,11 @@ def start_game():
         scrambled_word = scramble_word(word)
         print(word_art.game)
         print(
-            Fore.GREEN + f"{display_current} of 10" + Fore.RESET,
-            Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET,
+            Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
+            Fore.RED + f"     | {attempts} 🤍  |" + Fore.RESET,
         )
         print(color.BOLD + word_art.active_word + color.END)
-        print(Fore.CYAN + scrambled_word + Fore.RESET)
+        print(scrambled_word)
         print(color.BOLD + word_art.active_word + color.END)
         print("".ljust(200))
         text_effect("Enter your guess:")
@@ -190,8 +190,8 @@ def start_game():
         if guess == word:
             print(Fore.GREEN + word_art.right + Fore.RESET)
             print(
-                Fore.GREEN + f"{display_current} of 10" + Fore.RESET,
-                Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET,
+                Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
+                Fore.RED + f"     | {attempts} 💚  |" + Fore.RESET,
             )
             print(
                 Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET
@@ -209,8 +209,8 @@ def start_game():
         else:
             print(Fore.RED + word_art.wrong + Fore.RESET)
             print(
-                Fore.GREEN + f"{display_current} of 10" + Fore.RESET,
-                Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET,
+                Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
+                Fore.RED + f"     | {attempts} 💔  |" + Fore.RESET,
             )
             print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
             print(
