@@ -187,19 +187,21 @@ def start_game():
 
         if guess == word:
             print(Fore.GREEN + word_art.right + Fore.RESET)
+            print(Fore.YELLOW + f"{display_current} of 10" + Fore.RESET)
             print(Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
-            print("Good job!.".ljust(200))
+            print("Correct!.".ljust(200))
             time.sleep(1)
             text_effect_fast("Moving on...")
             time.sleep(3)
             clear_screen()
         else:
             print(Fore.RED + word_art.wrong + Fore.RESET)
-            print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
-            print(f"Nope... The right word was:".ljust(200))
+            print(Fore.YELLOW + f"{display_current} of 10" + Fore.RESET)
             print(color.BOLD + word_art.active_word + color.END)
             print(Fore.CYAN + word + Fore.RESET)
             print(color.BOLD + word_art.active_word + color.END)
+            print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
+            print(f"Nope... The right word was:".ljust(200))
             print("".ljust(200))
             attempts -= 1
             print(f"{attempts} attempts left")
