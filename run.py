@@ -28,6 +28,15 @@ class color:
     END = "\033[0m"
 
 
+def remove_line():
+    """
+
+    Move cursor to the beginning of the line
+
+    """
+    sys.stdout.write("\033[F")
+
+
 def text_effect_fast(text):
     """
 
@@ -68,13 +77,13 @@ def get_valid_answer():
     If user didn't type a letter, It will stay and ask for valid answer.
 
     """
-
     while True:
-        user_input = input()
+        user_input = input("-> ")
+        remove_line()
 
         if user_input.isalpha():
             return user_input.lower()
-        print("Try again")
+        print(Fore.RED + "Invalid choice!" + Fore.RESET, "You can only use letters:")
 
 
 def game_over_victory():
@@ -90,7 +99,7 @@ def game_over_victory():
     time.sleep(3)
     text_effect_fast("Press 'Enter' to exit the game.")
     input("")
-    text_effect_fast("heading back...")
+    text_effect_fast("Leaving...")
     time.sleep(1)
     clear_terminal()
     play_again()
@@ -168,6 +177,7 @@ def game_rules(data):
         return True
 
     else:
+        print(Fore.BLUE + word_art.welcome + Fore.RESET)
         print("Invalid choice. Please enter 'Y' or 'N'.")
 
 
@@ -218,9 +228,8 @@ def display_wrong_answer(display_current, attempts, scrambled_word, word):
         "]",
     )
     print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
-    print("".ljust(100))
-    print(Fore.RED + "(눈_눈)" + Fore.RESET)
-    print("".ljust(100))
+    print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
+    print("Wrong...".ljust(200))
     time.sleep(1)
     text_effect_fast("Moving on...")
     time.sleep(3)
@@ -289,7 +298,6 @@ def start_game():
         print(scrambled_word)
         print(color.BOLD + word_art.active_word + color.END)
         print("".ljust(200))
-        text_effect("Enter your guess:")
         guess = get_valid_answer()
         clear_terminal()
 
@@ -355,8 +363,6 @@ def welcome_message():
 
     """
     print(Fore.BLUE + word_art.welcome + Fore.RESET)
-    text_effect("WELCOME TO FIX-my-SPELL!")
-    time.sleep(1)
     text_effect_fast("Starting in...")
     print("3")
     time.sleep(1)
@@ -382,7 +388,7 @@ def main():
     text_effect(f"Hello {user_name}!\n")
     time.sleep(1)
     while True:
-        text_effect("Do you want to read the rules?")
+        text_effect_fast("Do you want to read the rules?")
         rules_input = input("(Y/N): ").upper()
         clear_terminal()
         if game_rules(rules_input):
