@@ -12,7 +12,7 @@ DISPLAY_CURRENT_WORD = 1
 
 
 class color:
-    BOLD = "\033[1m"
+    BOLD = "\033[2m"
     UNDERLINE = "\033[2m"
     END = "\033[0m"
 
@@ -176,8 +176,10 @@ def start_game():
         used_words.append(word)
         scrambled_word = scramble_word(word)
         print(word_art.game)
-        print(f"{display_current} of 10".ljust(400))
+        print(Fore.YELLOW + f"{display_current} of 10" + Fore.RESET)
+        print(color.BOLD + word_art.active_word + color.END)
         print(Fore.CYAN + scrambled_word + Fore.RESET)
+        print(color.BOLD + word_art.active_word + color.END)
         print("".ljust(200))
         text_effect("Enter your guess:")
         guess = input("").lower()
@@ -189,7 +191,7 @@ def start_game():
             print("Good job!.".ljust(200))
             time.sleep(1)
             text_effect_fast("Moving on...")
-            time.sleep(2)
+            time.sleep(3)
             clear_screen()
         else:
             print(Fore.RED + word_art.wrong + Fore.RESET)
@@ -201,9 +203,9 @@ def start_game():
             print("".ljust(200))
             attempts -= 1
             print(f"{attempts} attempts left")
-            time.sleep(3)
+            time.sleep(1)
             text_effect_fast("Moving on...")
-            time.sleep(2)
+            time.sleep(3)
             clear_screen()
 
         display_current += 1
