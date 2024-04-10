@@ -1,3 +1,9 @@
+
+![logo](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/a848ebda-e872-4e95-a57c-865cf2cba7e3)
+
+#### [Play here!](https://fix-my-spell-7e3aef96045e.herokuapp.com/)
+
+
 # Contents :mag_right:
 
 - [FIX-my-SPELL Game](#fix-my-spell-game)
