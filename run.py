@@ -176,7 +176,7 @@ def start_game():
         used_words.append(word)
         scrambled_word = scramble_word(word)
         print(word_art.game)
-        print(Fore.YELLOW + f"{display_current} of 10" + Fore.RESET)
+        print(Fore.GREEN + f"{display_current} of 10" + Fore.RESET, Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET)
         print(color.BOLD + word_art.active_word + color.END)
         print(Fore.CYAN + scrambled_word + Fore.RESET)
         print(color.BOLD + word_art.active_word + color.END)
@@ -187,7 +187,7 @@ def start_game():
 
         if guess == word:
             print(Fore.GREEN + word_art.right + Fore.RESET)
-            print(Fore.YELLOW + f"{display_current} of 10" + Fore.RESET)
+            print(Fore.GREEN + f"{display_current} of 10" + Fore.RESET, Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET)
             print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
             print(Fore.GREEN + scrambled_word + Fore.RESET)
             print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
@@ -199,15 +199,14 @@ def start_game():
             clear_screen()
         else:
             print(Fore.RED + word_art.wrong + Fore.RESET)
-            print(Fore.YELLOW + f"{display_current} of 10" + Fore.RESET)
+            print(Fore.GREEN + f"{display_current} of 10" + Fore.RESET, Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET)
             print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
             print(Fore.RED + scrambled_word + Fore.RESET, "     [The right word was: ", Fore.YELLOW + word + Fore.RESET,"]")
             print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
-            print("".ljust(200))
-            print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
-            print("".ljust(200))
+            print("".ljust(100))
+            print(Fore.RED + "(눈_눈)" + Fore.RESET)
+            print("".ljust(100))
             attempts -= 1
-            print(f"{attempts} attempts left")
             time.sleep(1)
             text_effect_fast("Moving on...")
             time.sleep(3)
