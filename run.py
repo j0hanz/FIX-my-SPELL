@@ -188,6 +188,9 @@ def start_game():
         if guess == word:
             print(Fore.GREEN + word_art.right + Fore.RESET)
             print(Fore.YELLOW + f"{display_current} of 10" + Fore.RESET)
+            print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+            print(Fore.GREEN + scrambled_word + Fore.RESET)
+            print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
             print(Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
             print("Correct!.".ljust(200))
             time.sleep(1)
@@ -197,11 +200,11 @@ def start_game():
         else:
             print(Fore.RED + word_art.wrong + Fore.RESET)
             print(Fore.YELLOW + f"{display_current} of 10" + Fore.RESET)
-            print(color.BOLD + word_art.active_word + color.END)
-            print(Fore.YELLOW + word + Fore.RESET)
-            print(color.BOLD + word_art.active_word + color.END)
+            print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+            print(Fore.RED + scrambled_word + Fore.RESET, "     [The right word was: ", Fore.YELLOW + word + Fore.RESET,"]")
+            print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+            print("".ljust(200))
             print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
-            print(f"Nope... The right word was:".ljust(200))
             print("".ljust(200))
             attempts -= 1
             print(f"{attempts} attempts left")
