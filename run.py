@@ -8,12 +8,13 @@ from words import Words
 
 MAX_ATTEMPTS = 3
 WORDS_TO_PLAY = 10
+DISPLAY_CURRENT_WORD = 1
 
 
 class color:
-   BOLD = '\033[1m'
-   UNDERLINE = '\033[2m'
-   END = '\033[0m'
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[2m"
+    END = "\033[0m"
 
 
 def text_effect_fast(text):
@@ -143,11 +144,10 @@ def start_game():
     Function that starts the game.
 
     """
-    print(Fore.GREEN + word_art.game)
-    print(Fore.RESET)
     used_words = []
     words_to_play = WORDS_TO_PLAY
     attempts = MAX_ATTEMPTS
+    display_current = DISPLAY_CURRENT_WORD
     for _ in range(words_to_play):
         """
 
@@ -157,10 +157,10 @@ def start_game():
         word = choose_word(used_words)
 
         if attempts == 0:
-            
+
             clear_screen()
             print(Fore.RED + word_art.lose.ljust(200) + Fore.RESET)
-            print(Fore.YELLOW + "(눈_눈)".ljust(200) + Fore.RESET)                                                         
+            print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
             text_effect("All attempts are used, you lost the game...")
             time.sleep(3)
             text_effect_fast("Press 'Enter' to move on.")
@@ -175,32 +175,38 @@ def start_game():
 
         used_words.append(word)
         scrambled_word = scramble_word(word)
+        print(word_art.game)
+        print(f"{display_current} of 10".ljust(400))
         print(Fore.CYAN + scrambled_word + Fore.RESET)
         print("".ljust(200))
         text_effect("Enter your guess:")
         guess = input("").lower()
         clear_screen()
-        print(word_art.game)
-
 
         if guess == word:
-            print(Fore.YELLOW + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
+            print(Fore.GREEN + word_art.right + Fore.RESET)
+            print(Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
             print("Good job!.".ljust(200))
             time.sleep(1)
             text_effect_fast("Moving on...")
             time.sleep(2)
             clear_screen()
-            print(Fore.GREEN + word_art.game + Fore.RESET)
         else:
-            print(Fore.YELLOW + "(눈_눈)".ljust(200) + Fore.RESET)  
-            print(f"Nope... The right word was: ", word.ljust(200))
-            print(f"You have {attempts} attempts left.")
+            print(Fore.RED + word_art.wrong + Fore.RESET)
+            print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
+            print(f"Nope... The right word was:".ljust(200))
+            print("============")
+            print(Fore.CYAN + word + Fore.RESET)
+            print("============")
+            print("".ljust(200))
             attempts -= 1
+            print(f"{attempts} attempts left")
             time.sleep(3)
             text_effect_fast("Moving on...")
             time.sleep(2)
             clear_screen()
-            print(Fore.GREEN + word_art.game + Fore.RESET)
+
+        display_current += 1
 
 
 def play_again():
@@ -236,7 +242,7 @@ def thank_you_message():
     a thank you message will appear and heads back to start screen.
 
     """
-    print(Fore.BLUE +  word_art.welcome + Fore.RESET)
+    print(Fore.BLUE + word_art.welcome + Fore.RESET)
     text_effect("Thanks for playing!")
     time.sleep(1)
     text_effect_fast("Heading back to start menu...")
@@ -300,9 +306,9 @@ def main():
         clear_terminal()
         start_game()
         break
-    
-    #clear_terminal()
-    #start_game()
+
+    # clear_terminal()
+    # start_game()
 
     if play_again():
         clear_terminal()
