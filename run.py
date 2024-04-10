@@ -155,6 +155,19 @@ def start_game():
         """
         word = choose_word(used_words)
 
+        if display_current == 10:
+            clear_screen()
+            print(Fore.GREEN + word_art.victory.ljust(200) + Fore.RESET)
+            print(Fore.GREEN + "ヾ(＾∇＾)".ljust(200) + Fore.RESET)
+            text_effect("Well done! You completed the game!")
+            time.sleep(3)
+            text_effect_fast("Press 'Enter' to exit the game.")
+            input("")
+            text_effect_fast("heading back...")
+            time.sleep(1)
+            clear_screen()
+            play_again()
+
         if attempts == 0:
 
             clear_screen()
