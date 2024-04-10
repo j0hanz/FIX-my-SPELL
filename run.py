@@ -6,12 +6,24 @@ import sys
 import random
 from words import Words
 
+
+"""
+
+Constant Varibles
+
+"""
 MAX_ATTEMPTS = 3
 WORDS_TO_PLAY = 10
 DISPLAY_CURRENT_WORD = 1
 
 
 class color:
+    """
+
+    Function that makes (active_word) from word_art BOLD
+
+    """
+
     BOLD = "\033[2m"
     END = "\033[0m"
 
@@ -36,6 +48,7 @@ def text_effect(text):
     """
 
     Create typing effect to improve user experience.
+    Targets messages.
 
     """
     for letter in text:
@@ -48,6 +61,60 @@ def text_effect(text):
     print()
 
 
+def get_valid_answer():
+    """
+
+    This function validates If user enters a letter.
+    If user didn't type a letter, It will stay and ask for valid answer.
+
+    """
+
+    while True:
+        user_input = input()
+
+        if user_input.isalpha():
+            return user_input.lower()
+        print("Try again")
+
+
+def game_over_victory():
+    """
+
+    When user finished the game, this function will run.
+
+    """
+    clear_terminal()
+    print(Fore.GREEN + word_art.victory.ljust(200) + Fore.RESET)
+    print(Fore.GREEN + "ヾ(＾∇＾)".ljust(200) + Fore.RESET)
+    text_effect("Well done! You completed the game!")
+    time.sleep(3)
+    text_effect_fast("Press 'Enter' to exit the game.")
+    input("")
+    text_effect_fast("heading back...")
+    time.sleep(1)
+    clear_terminal()
+    play_again()
+
+
+def game_over_fail():
+    """
+
+    When user has run out of attempts, this function will run.
+
+    """
+    clear_terminal()
+    print(Fore.RED + word_art.lose.ljust(200) + Fore.RESET)
+    print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
+    text_effect("All attempts are used, you lost the game...")
+    time.sleep(3)
+    text_effect_fast("Press 'Enter' to move on.")
+    input("")
+    text_effect_fast("heading back...")
+    time.sleep(1)
+    clear_terminal()
+    play_again()
+
+
 def clear_terminal():
     """
 
@@ -58,18 +125,10 @@ def clear_terminal():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-def clear_screen():
-    """
-    To clear screen after ever round to enhance user experience
-    """
-    sys.stdout.write("\033c")
-    sys.stdout.flush()
-
-
 def user_input():
     """
 
-    Function to request a user's name and return it.
+    Function that requests a user's name and returns it.
 
     """
     user_name = ""
@@ -95,7 +154,8 @@ def user_input():
 def game_rules(data):
     """
 
-    Data for rules
+    Data for how to play. User can choose to show the rules for the game.
+    Or continue without showing the rules.
 
     """
     if data == "Y":
@@ -114,7 +174,8 @@ def game_rules(data):
 def choose_word(used_words):
     """
 
-    Randomly selects a word from the list that hasn't been used yet
+    Randomly selects a word from the list that hasn't been used yet.
+    All words are located in 'words.py' file.
 
     """
     available_words = [word for word in Words if word not in used_words]
@@ -127,7 +188,7 @@ def choose_word(used_words):
 def scramble_word(word):
     """
 
-    Scrambles the letters of the word, here I have decided to keep the first and last letters unchanged
+    Scrambles the letters of the word, here I have decided to keep the first and last letters unchanged.
 
     """
     first_letter = word[0]
@@ -135,6 +196,59 @@ def scramble_word(word):
     middle_letters = list(word[1:-1])
     random.shuffle(middle_letters)
     return first_letter + "".join(middle_letters) + last_letter
+
+
+def display_wrong_answer(display_current, attempts, scrambled_word, word):
+    """
+
+    When User answered correct, this function will run.
+
+    """
+
+    print(Fore.RED + word_art.wrong + Fore.RESET)
+    print(
+        Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
+        Fore.RED + f"     | {attempts} 💔  |" + Fore.RESET,
+    )
+    print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+    print(
+        Fore.RED + scrambled_word + Fore.RESET,
+        "     [ The right word was:",
+        Fore.YELLOW + word + Fore.RESET,
+        "]",
+    )
+    print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+    print("".ljust(100))
+    print(Fore.RED + "(눈_눈)" + Fore.RESET)
+    print("".ljust(100))
+    time.sleep(1)
+    text_effect_fast("Moving on...")
+    time.sleep(3)
+    clear_terminal()
+
+
+def display_right_answer(display_current, attempts, scrambled_word):
+    """
+
+    When User answered wrong, this function will run.
+    Also shows the correct word.
+
+    """
+
+    print(Fore.GREEN + word_art.right + Fore.RESET)
+    print(
+        Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
+        Fore.RED + f"     | {attempts} 💚  |" + Fore.RESET,
+    )
+    print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+    print(Fore.GREEN + scrambled_word + Fore.RESET)
+    print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+    print(Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
+    print("Correct!.".ljust(200))
+    time.sleep(1)
+    text_effect_fast("Moving on...")
+    time.sleep(3)
+    clear_terminal()
 
 
 def start_game():
@@ -156,31 +270,10 @@ def start_game():
         word = choose_word(used_words)
 
         if display_current == 10:
-            clear_screen()
-            print(Fore.GREEN + word_art.victory.ljust(200) + Fore.RESET)
-            print(Fore.GREEN + "ヾ(＾∇＾)".ljust(200) + Fore.RESET)
-            text_effect("Well done! You completed the game!")
-            time.sleep(3)
-            text_effect_fast("Press 'Enter' to exit the game.")
-            input("")
-            text_effect_fast("heading back...")
-            time.sleep(1)
-            clear_screen()
-            play_again()
+            game_over_victory()
 
         if attempts == 0:
-
-            clear_screen()
-            print(Fore.RED + word_art.lose.ljust(200) + Fore.RESET)
-            print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
-            text_effect("All attempts are used, you lost the game...")
-            time.sleep(3)
-            text_effect_fast("Press 'Enter' to move on.")
-            input("")
-            text_effect_fast("heading back...")
-            time.sleep(1)
-            clear_screen()
-            play_again()
+            game_over_fail()
 
         if word is None:
             break
@@ -197,50 +290,17 @@ def start_game():
         print(color.BOLD + word_art.active_word + color.END)
         print("".ljust(200))
         text_effect("Enter your guess:")
-        guess = input("").lower()
-        clear_screen()
+        guess = get_valid_answer()
+        clear_terminal()
 
         if guess == word:
-            print(Fore.GREEN + word_art.right + Fore.RESET)
-            print(
-                Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
-                Fore.RED + f"     | {attempts} 💚  |" + Fore.RESET,
-            )
-            print(
-                Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET
-            )
-            print(Fore.GREEN + scrambled_word + Fore.RESET)
-            print(
-                Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET
-            )
-            print(Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
-            print("Correct!.".ljust(200))
-            time.sleep(1)
-            text_effect_fast("Moving on...")
-            time.sleep(3)
-            clear_screen()
+
+            display_right_answer(display_current, attempts, scrambled_word)
+
         else:
-            print(Fore.RED + word_art.wrong + Fore.RESET)
-            print(
-                Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
-                Fore.RED + f"     | {attempts} 💔  |" + Fore.RESET,
-            )
-            print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
-            print(
-                Fore.RED + scrambled_word + Fore.RESET,
-                "     [ The right word was:",
-                Fore.YELLOW + word + Fore.RESET,
-                "]",
-            )
-            print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
-            print("".ljust(100))
-            print(Fore.RED + "(눈_눈)" + Fore.RESET)
-            print("".ljust(100))
+
+            display_wrong_answer(display_current, attempts, scrambled_word, word)
             attempts -= 1
-            time.sleep(1)
-            text_effect_fast("Moving on...")
-            time.sleep(3)
-            clear_screen()
 
         display_current += 1
 
@@ -248,34 +308,35 @@ def start_game():
 def play_again():
     """
 
-    Then the game Is finished, the game will ask If User wants to play again.
+    When the game Is finished, the game will ask If User wants to play again.
 
     """
     clear_terminal()
     print(Fore.BLUE + word_art.welcome + Fore.RESET)
     text_effect("Do you want to restart the game?")
-    restart = input("(Y/N): ").upper()
-    if restart == "Y":
-        text_effect_fast("Great! Restarting the game...")
-        time.sleep(2)
-        clear_terminal()
-        start_game()
-        return True
+    while True:
+        restart = input("(Y/N): ").upper()
+        if restart == "Y":
+            text_effect_fast("Great! Restarting the game...")
+            time.sleep(2)
+            clear_terminal()
+            start_game()
+            return True
 
-    elif restart == "N":
-        clear_terminal()
-        thank_you_message()
-        main()
-        return False
-    else:
-        print("Invalid choice. Please enter 'Y' or 'N'.\n")
+        elif restart == "N":
+            clear_terminal()
+            thank_you_message()
+            main()
+            return False
+        else:
+            print("Invalid choice. Please enter 'Y' or 'N'.\n")
 
 
 def thank_you_message():
     """
 
     If user doesn't want to continue playing,
-    a thank you message will appear and heads back to start screen.
+    A thank you message will appear and heads back to start screen.
 
     """
     print(Fore.BLUE + word_art.welcome + Fore.RESET)
