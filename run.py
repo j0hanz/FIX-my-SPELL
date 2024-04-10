@@ -83,7 +83,7 @@ def user_input():
             break
         elif not user_name.isalpha():
             clear_terminal()
-            print("".ljust(100))
+            print("".ljust(200))
             print(Fore.YELLOW + "(ᴗ˳ᴗ)" + Fore.RESET)
             text_effect(f"{user_name}?\nIs that really your name?")
             text_effect("Nah try again.\n")
@@ -159,8 +159,8 @@ def start_game():
         if attempts == 0:
             
             clear_screen()
-            print(Fore.RED + word_art.lose.ljust(100) + Fore.RESET)
-            print(Fore.YELLOW + "(눈_눈)".ljust(100) + Fore.RESET)                                                         
+            print(Fore.RED + word_art.lose.ljust(200) + Fore.RESET)
+            print(Fore.YELLOW + "(눈_눈)".ljust(200) + Fore.RESET)                                                         
             text_effect("All attempts are used, you lost the game...")
             time.sleep(3)
             text_effect_fast("Press 'Enter' to move on.")
@@ -178,10 +178,13 @@ def start_game():
         print(Fore.CYAN + scrambled_word + Fore.RESET)
         text_effect("Enter your guess:")
         guess = input("").lower()
-        print("".ljust(100))
+        print("".ljust(200))
+        clear_screen()
+        print(word_art.game)
+
 
         if guess == word:
-            print(Fore.YELLOW + "⊂(◉‿◉)つ".ljust(100) + Fore.RESET)
+            print(Fore.YELLOW + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
             print("Good job!.".ljust(200))
             time.sleep(1)
             text_effect_fast("Moving on...")
@@ -189,8 +192,8 @@ def start_game():
             clear_screen()
             print(Fore.GREEN + word_art.game + Fore.RESET)
         else:
-            print(Fore.YELLOW + "(눈_눈)".ljust(100) + Fore.RESET)  
-            print(f"Nope... The right word was: ", word.ljust(100))
+            print(Fore.YELLOW + "(눈_눈)".ljust(200) + Fore.RESET)  
+            print(f"Nope... The right word was: ", word.ljust(200))
             print(f"You have {attempts} attempts left.")
             attempts -= 1
             time.sleep(3)
@@ -272,7 +275,7 @@ def main():
     user_name = user_input()
     clear_terminal()
     print(Fore.BLUE + word_art.welcome + Fore.RESET)
-    print(Fore.YELLOW + "⊂(◉‿◉)つ".ljust(100) + Fore.RESET)
+    print(Fore.YELLOW + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
     text_effect(f"Hello {user_name}!\n")
     time.sleep(1)
     while True:
@@ -284,7 +287,7 @@ def main():
 
     while True:
         print(Fore.BLUE + word_art.welcome + Fore.RESET)
-        print(Fore.YELLOW + "(✪‿✪)" + Fore.RESET.ljust(100))
+        print(Fore.YELLOW + "(✪‿✪)" + Fore.RESET.ljust(200))
         text_effect(f"Press enter to start the game {user_name}!")
         input("")
         text_effect_fast("Starting in...")
