@@ -197,9 +197,9 @@ def start_game():
             print(Fore.RED + word_art.wrong + Fore.RESET)
             print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
             print(f"Nope... The right word was:".ljust(200))
-            print("============")
+            print(color.BOLD + word_art.active_word + color.END)
             print(Fore.CYAN + word + Fore.RESET)
-            print("============")
+            print(color.BOLD + word_art.active_word + color.END)
             print("".ljust(200))
             attempts -= 1
             print(f"{attempts} attempts left")
