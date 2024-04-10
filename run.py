@@ -13,7 +13,6 @@ DISPLAY_CURRENT_WORD = 1
 
 class color:
     BOLD = "\033[2m"
-    UNDERLINE = "\033[2m"
     END = "\033[0m"
 
 
@@ -45,7 +44,7 @@ def text_effect(text):
         else:
             sys.stdout.write(letter)
             sys.stdout.flush()
-            time.sleep(0.05)
+            time.sleep(0.03)
     print()
 
 
@@ -176,7 +175,10 @@ def start_game():
         used_words.append(word)
         scrambled_word = scramble_word(word)
         print(word_art.game)
-        print(Fore.GREEN + f"{display_current} of 10" + Fore.RESET, Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET)
+        print(
+            Fore.GREEN + f"{display_current} of 10" + Fore.RESET,
+            Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET,
+        )
         print(color.BOLD + word_art.active_word + color.END)
         print(Fore.CYAN + scrambled_word + Fore.RESET)
         print(color.BOLD + word_art.active_word + color.END)
@@ -187,10 +189,17 @@ def start_game():
 
         if guess == word:
             print(Fore.GREEN + word_art.right + Fore.RESET)
-            print(Fore.GREEN + f"{display_current} of 10" + Fore.RESET, Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET)
-            print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+            print(
+                Fore.GREEN + f"{display_current} of 10" + Fore.RESET,
+                Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET,
+            )
+            print(
+                Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET
+            )
             print(Fore.GREEN + scrambled_word + Fore.RESET)
-            print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+            print(
+                Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET
+            )
             print(Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
             print("Correct!.".ljust(200))
             time.sleep(1)
@@ -199,9 +208,17 @@ def start_game():
             clear_screen()
         else:
             print(Fore.RED + word_art.wrong + Fore.RESET)
-            print(Fore.GREEN + f"{display_current} of 10" + Fore.RESET, Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET)
+            print(
+                Fore.GREEN + f"{display_current} of 10" + Fore.RESET,
+                Fore.YELLOW + f"     {attempts} attempts left" + Fore.RESET,
+            )
             print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
-            print(Fore.RED + scrambled_word + Fore.RESET, "     [The right word was: ", Fore.YELLOW + word + Fore.RESET,"]")
+            print(
+                Fore.RED + scrambled_word + Fore.RESET,
+                "     [ The right word was:",
+                Fore.YELLOW + word + Fore.RESET,
+                "]",
+            )
             print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
             print("".ljust(100))
             print(Fore.RED + "(눈_눈)" + Fore.RESET)
@@ -312,9 +329,6 @@ def main():
         clear_terminal()
         start_game()
         break
-
-    # clear_terminal()
-    # start_game()
 
     if play_again():
         clear_terminal()
