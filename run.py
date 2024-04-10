@@ -176,9 +176,9 @@ def start_game():
         used_words.append(word)
         scrambled_word = scramble_word(word)
         print(Fore.CYAN + scrambled_word + Fore.RESET)
+        print("".ljust(200))
         text_effect("Enter your guess:")
         guess = input("").lower()
-        print("".ljust(200))
         clear_screen()
         print(word_art.game)
 
