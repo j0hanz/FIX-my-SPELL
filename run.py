@@ -7,6 +7,17 @@ import random
 from words import Words
 
 
+class color:
+    """
+
+    Function that makes (line) from word_art BOLD
+
+    """
+
+    BOLD = "\033[2m"
+    END = "\033[0m"
+
+
 """
 
 Constant Varibles
@@ -15,17 +26,8 @@ Constant Varibles
 MAX_ATTEMPTS = 3
 WORDS_TO_PLAY = 10
 DISPLAY_CURRENT_WORD = 1
-
-
-class color:
-    """
-
-    Function that makes (active_word) from word_art BOLD
-
-    """
-
-    BOLD = "\033[2m"
-    END = "\033[0m"
+RED_LINE = Fore.RED + color.BOLD + word_art.line + color.END + Fore.RESET
+GREEN_LINE = Fore.GREEN + color.BOLD + word_art.line + color.END + Fore.RESET
 
 
 def remove_line():
@@ -82,7 +84,8 @@ def get_valid_answer():
         remove_line()
         if user_input.isalpha():
             return user_input.lower()
-        print(Fore.RED + "Invalid choice!" + Fore.RESET, "You can only use letters:")
+        print(Fore.RED + "Invalid choice!" + Fore.RESET,
+              "You can only use letters:")
 
 
 def game_over_victory():
@@ -197,13 +200,14 @@ def choose_word(used_words):
 def scramble_word(word):
     """
 
-    Scrambles the letters of the word, here I have decided to keep the first, second and last letters unchanged.
+    Scrambles the letters of the word, here I have decided to keep the first,
+    second and last letters unchanged.
 
     """
     first_letter = word[0]
     second_letter = word[1]
     last_letter = word[-1]
-    middle_letters = list(word[1:-1])
+    middle_letters = list(word[2:-1])
     random.shuffle(middle_letters)
     return first_letter + second_letter + "".join(middle_letters) + last_letter
 
@@ -218,7 +222,7 @@ def display_wrong_answer(display_current, attempts, scrambled_word, word):
 
     print(Fore.RED + word_art.game + Fore.RESET)
     print(f"| {display_current}/10 |" f"     | {attempts} 💔  |")
-    print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+    print(RED_LINE)
     print(
         Fore.RED + scrambled_word,
         "     WRONG!" + Fore.RESET,
@@ -226,7 +230,7 @@ def display_wrong_answer(display_current, attempts, scrambled_word, word):
         Fore.YELLOW + word + Fore.RESET,
         ")",
     )
-    print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+    print(RED_LINE)
     print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
     time.sleep(1)
     text_effect_fast("Moving on...")
@@ -244,9 +248,9 @@ def display_right_answer(display_current, attempts, scrambled_word):
 
     print(Fore.GREEN + word_art.game + Fore.RESET)
     print(f"| {display_current}/10 |" f"     | {attempts} 💚  |")
-    print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+    print(GREEN_LINE)
     print(Fore.GREEN + scrambled_word, "      CORRECT!" + Fore.RESET)
-    print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
+    print(GREEN_LINE)
     print(Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
     time.sleep(1)
     text_effect_fast("Moving on...")
@@ -286,20 +290,22 @@ def start_game():
         scrambled_word = scramble_word(word)
         print(word_art.game)
         print(f"| {display_current}/10 |" f"     | {attempts} 🤍  |")
-        print(color.BOLD + word_art.active_word + color.END)
+        print(color.BOLD + word_art.line + color.END)
         print(scrambled_word)
-        print(color.BOLD + word_art.active_word + color.END)
+        print(color.BOLD + word_art.line + color.END)
         print("".ljust(200))
         guess = get_valid_answer()
         clear_terminal()
 
         if guess == word:
 
-            display_right_answer(display_current, attempts, scrambled_word)
+            display_right_answer(display_current,
+                                 attempts, scrambled_word)
 
         else:
 
-            display_wrong_answer(display_current, attempts, scrambled_word, word)
+            display_wrong_answer(display_current,
+                                 attempts, scrambled_word, word)
             attempts -= 1
 
         display_current += 1
@@ -409,4 +415,6 @@ def main():
         start_game()
 
 
-main()
+if __name__ == "__main__":
+
+    main()
