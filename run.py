@@ -197,14 +197,15 @@ def choose_word(used_words):
 def scramble_word(word):
     """
 
-    Scrambles the letters of the word, here I have decided to keep the first and last letters unchanged.
+    Scrambles the letters of the word, here I have decided to keep the first, second and last letters unchanged.
 
     """
     first_letter = word[0]
+    second_letter = word[1]
     last_letter = word[-1]
     middle_letters = list(word[1:-1])
     random.shuffle(middle_letters)
-    return first_letter + "".join(middle_letters) + last_letter
+    return first_letter + second_letter + "".join(middle_letters) + last_letter
 
 
 def display_wrong_answer(display_current, attempts, scrambled_word, word):
@@ -215,20 +216,17 @@ def display_wrong_answer(display_current, attempts, scrambled_word, word):
     """
 
     print(Fore.RED + word_art.game + Fore.RESET)
-    print(
-        Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
-        Fore.RED + f"     | {attempts} 💔  |" + Fore.RESET,
-    )
+    print(f"| {display_current}/10 |" f"     | {attempts} 💔  |")
     print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
     print(
-        Fore.RED + scrambled_word + Fore.RESET,
-        "     [ The right word was:",
+        Fore.RED + scrambled_word,
+        "     WRONG!" + Fore.RESET,
+        "The right word was: (",
         Fore.YELLOW + word + Fore.RESET,
-        "]",
+        ")",
     )
     print(Fore.RED + color.BOLD + word_art.active_word + color.END + Fore.RESET)
     print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
-    print("Wrong...".ljust(200))
     time.sleep(1)
     text_effect_fast("Moving on...")
     sys.stdout.write("\033[F")
@@ -245,15 +243,11 @@ def display_right_answer(display_current, attempts, scrambled_word):
     """
 
     print(Fore.GREEN + word_art.game + Fore.RESET)
-    print(
-        Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
-        Fore.RED + f"     | {attempts} 💚  |" + Fore.RESET,
-    )
+    print(f"| {display_current}/10 |" f"     | {attempts} 💚  |")
     print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
-    print(Fore.GREEN + scrambled_word + Fore.RESET)
+    print(Fore.GREEN + scrambled_word, "      CORRECT!" + Fore.RESET)
     print(Fore.GREEN + color.BOLD + word_art.active_word + color.END + Fore.RESET)
     print(Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
-    print("Correct!.".ljust(200))
     time.sleep(1)
     text_effect_fast("Moving on...")
     sys.stdout.write("\033[F")
@@ -291,10 +285,7 @@ def start_game():
         used_words.append(word)
         scrambled_word = scramble_word(word)
         print(word_art.game)
-        print(
-            Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
-            Fore.RED + f"     | {attempts} 🤍  |" + Fore.RESET,
-        )
+        print(f"| {display_current}/10 |" f"     | {attempts} 🤍  |")
         print(color.BOLD + word_art.active_word + color.END)
         print(scrambled_word)
         print(color.BOLD + word_art.active_word + color.END)
