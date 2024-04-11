@@ -40,10 +40,10 @@ You simply write the right word and correctly spelled.
   | num 🤍 | - Number of Attempts
   | num/10 | - Progress bar
 
-You have 3 attempts during the game, you lose the game If you 
-Run out of attempts.
-
-The game has total 10 words that It shuffles. 
+You have 3 attempts during the game, 
+After 3 wrong answers, you lose the game
+The game will display total of 10 words that It shuffles,
+one at the time. 
 After reaching the last word, you win the game!
 _____________________________________________________________
  """
