@@ -80,7 +80,6 @@ def get_valid_answer():
     while True:
         user_input = input("-> ")
         remove_line()
-
         if user_input.isalpha():
             return user_input.lower()
         print(Fore.RED + "Invalid choice!" + Fore.RESET, "You can only use letters:")
@@ -100,6 +99,7 @@ def game_over_victory():
     text_effect_fast("Press 'Enter' to exit the game.")
     input("")
     text_effect_fast("Leaving...")
+    sys.stdout.write("\033[F")
     time.sleep(1)
     clear_terminal()
     play_again()
@@ -114,12 +114,11 @@ def game_over_fail():
     clear_terminal()
     print(Fore.RED + word_art.lose.ljust(200) + Fore.RESET)
     print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
-    text_effect("All attempts are used, you lost the game...")
-    time.sleep(3)
-    text_effect_fast("Press 'Enter' to move on.")
-    input("")
-    text_effect_fast("heading back...")
-    time.sleep(1)
+    text_effect("All attempts are used... Game over!")
+    time.sleep(2)
+    text_effect_fast("Leaving...")
+    sys.stdout.write("\033[F")
+    time.sleep(2)
     clear_terminal()
     play_again()
 
@@ -215,7 +214,7 @@ def display_wrong_answer(display_current, attempts, scrambled_word, word):
 
     """
 
-    print(Fore.RED + word_art.wrong + Fore.RESET)
+    print(Fore.RED + word_art.game + Fore.RESET)
     print(
         Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
         Fore.RED + f"     | {attempts} 💔  |" + Fore.RESET,
@@ -232,6 +231,7 @@ def display_wrong_answer(display_current, attempts, scrambled_word, word):
     print("Wrong...".ljust(200))
     time.sleep(1)
     text_effect_fast("Moving on...")
+    sys.stdout.write("\033[F")
     time.sleep(3)
     clear_terminal()
 
@@ -244,7 +244,7 @@ def display_right_answer(display_current, attempts, scrambled_word):
 
     """
 
-    print(Fore.GREEN + word_art.right + Fore.RESET)
+    print(Fore.GREEN + word_art.game + Fore.RESET)
     print(
         Fore.GREEN + f"| {display_current}/10 |" + Fore.RESET,
         Fore.RED + f"     | {attempts} 💚  |" + Fore.RESET,
@@ -256,6 +256,7 @@ def display_right_answer(display_current, attempts, scrambled_word):
     print("Correct!.".ljust(200))
     time.sleep(1)
     text_effect_fast("Moving on...")
+    sys.stdout.write("\033[F")
     time.sleep(3)
     clear_terminal()
 
@@ -350,7 +351,8 @@ def thank_you_message():
     print(Fore.BLUE + word_art.welcome + Fore.RESET)
     text_effect("Thanks for playing!")
     time.sleep(1)
-    text_effect_fast("Heading back to start menu...")
+    text_effect_fast("Leaving...")
+    sys.stdout.write("\033[F")
     time.sleep(2)
     clear_terminal()
 
@@ -362,14 +364,16 @@ def welcome_message():
     this Is the first function that will appear on the screen.
 
     """
-    print(Fore.BLUE + word_art.welcome + Fore.RESET)
-    text_effect_fast("Starting in...")
-    print("3")
-    time.sleep(1)
-    print("2")
-    time.sleep(1)
-    print("1")
-    time.sleep(1)
+    while True:
+        print(Fore.BLUE + word_art.welcome + Fore.RESET)
+        text_effect_fast("Starting in...")
+        print("3")
+        time.sleep(1)
+        print("2")
+        time.sleep(1)
+        print("1")
+        time.sleep(1)
+        break
     clear_terminal()
 
 
@@ -397,8 +401,8 @@ def main():
     while True:
         print(Fore.BLUE + word_art.welcome + Fore.RESET)
         print(Fore.YELLOW + "(✪‿✪)" + Fore.RESET.ljust(200))
-        text_effect(f"Press enter to start the game {user_name}!")
-        input("")
+        text_effect(f"Let's get started {user_name}!")
+        time.sleep(1)
         text_effect_fast("Starting in...")
         print("3")
         time.sleep(1)
@@ -406,9 +410,9 @@ def main():
         time.sleep(1)
         print("1")
         time.sleep(1)
-        clear_terminal()
-        start_game()
         break
+    clear_terminal()
+    start_game()
 
     if play_again():
         clear_terminal()
