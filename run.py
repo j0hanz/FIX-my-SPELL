@@ -348,11 +348,10 @@ def thank_you_message():
     clear_terminal()
 
 
-def welcome_message():
+def start_screen():
     """
 
-    Function that welcomes users to the game,
-    this Is the first function that will appear on the screen.
+    First screen that will appear when starting the game
 
     """
     while True:
@@ -374,7 +373,7 @@ def main():
     Main function
 
     """
-    welcome_message()
+    start_screen()
     print(Fore.BLUE + word_art.welcome + Fore.RESET)
     user_name = user_input()
     clear_terminal()
