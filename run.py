@@ -211,7 +211,8 @@ def scramble_word(word):
 def display_wrong_answer(display_current, attempts, scrambled_word, word):
     """
 
-    When User answered correct, this function will run.
+    When User answered wrong, this function will run.
+     Also shows the correct word.
 
     """
 
@@ -237,8 +238,7 @@ def display_wrong_answer(display_current, attempts, scrambled_word, word):
 def display_right_answer(display_current, attempts, scrambled_word):
     """
 
-    When User answered wrong, this function will run.
-    Also shows the correct word.
+    When User answered correct, this function will run.
 
     """
 

@@ -30,15 +30,22 @@ instructions = """
   ____        _           
  |  _ \ _   _| | ___  ___ 
  | |_) | | | | |/ _ \/ __|
- |  _ <| |_| | |  __/\__ \
- |_| \_\\__,_|_|\___||___/
-_________________________________________________________
+ |  _ <| |_| | |  __/\__ \\
+ |_| \_\\\\__,_|_|\___||___/
+_____________________________________________________________
                               
+The game will display a word that Is misspelled,
+You simply write the right word and correctly spelled.
 
-              Empty
+  | num 🤍 | - Number of Attempts
+  | num/10 | - Progress bar
 
-                                                                    
-_________________________________________________________
+You have 3 attempts during the game, you lose the game If you 
+Run out of attempts.
+
+The game has total 10 words that It shuffles. 
+After reaching the last word, you win the game!
+_____________________________________________________________
  """
 game = """
   ___ ___ ___ _    _                      ___ ___  ___ ___ ___ ___ _____ 
