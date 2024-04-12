@@ -29,6 +29,7 @@ DISPLAY_CURRENT_WORD = 1
 RED_LINE = Fore.RED + color.BOLD + word_art.line + color.END + Fore.RESET
 GREEN_LINE = Fore.GREEN + color.BOLD + word_art.line + color.END + Fore.RESET
 BOLD_LINE = color.BOLD + word_art.line + color.END
+LOGO = Fore.BLUE + word_art.welcome + Fore.RESET
 
 
 def start_count():
@@ -193,7 +194,7 @@ def game_rules(data):
         return True
 
     else:
-        print(Fore.BLUE + word_art.welcome + Fore.RESET)
+        print(LOGO)
         print("Invalid choice. Please enter 'Y' or 'N'.")
 
 
@@ -336,7 +337,7 @@ def play_again():
 
     """
     clear_terminal()
-    print(Fore.BLUE + word_art.welcome + Fore.RESET)
+    print(LOGO)
     text_effect("Do you want to restart the game?")
     while True:
         restart = input("(Y/N): ").upper()
@@ -363,7 +364,7 @@ def thank_you_message():
     A thank you message will appear and heads back to start screen.
 
     """
-    print(Fore.BLUE + word_art.welcome + Fore.RESET)
+    print(LOGO)
     text_effect("Thanks for playing!")
     time.sleep(1)
     text_effect_fast("Leaving...")
@@ -379,7 +380,6 @@ def start_screen():
 
     """
     while True:
-        print(Fore.BLUE + word_art.welcome + Fore.RESET)
         start_count()
         break
     clear_terminal()
@@ -392,10 +392,10 @@ def main():
 
     """
     start_screen()
-    print(Fore.BLUE + word_art.welcome + Fore.RESET)
+    print(LOGO)
     user_name = user_input()
     clear_terminal()
-    print(Fore.BLUE + word_art.welcome + Fore.RESET)
+    print(LOGO)
     print(Fore.YELLOW + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
     text_effect(f"Hello {user_name}!\n")
     time.sleep(1)
@@ -407,7 +407,7 @@ def main():
             break
 
     while True:
-        print(Fore.BLUE + word_art.welcome + Fore.RESET)
+        print(LOGO)
         print(Fore.YELLOW + "(✪‿✪)" + Fore.RESET.ljust(200))
         text_effect(f"Let's get started {user_name}!")
         time.sleep(1)
