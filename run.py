@@ -98,8 +98,8 @@ def get_valid_answer():
         remove_line()
         if user_input.isalpha() and len(user_input) >= 2:
             return user_input.lower()
-        print(Fore.RED + "Invalid!" + Fore.RESET,
-              "Try again.")
+        print(Fore.RED + "Invalid answer!" + Fore.RESET,
+              Fore.YELLOW + f"[{user_input}]" + Fore.RESET, "Try again...")
 
 
 def game_over_victory():
@@ -226,7 +226,8 @@ def scramble_word(word):
     return first_letter + second_letter + "".join(middle_letters) + last_letter
 
 
-def display_wrong_answer(display_current, attempts, scrambled_word, word):
+def display_wrong_answer(display_current, attempts,
+                         scrambled_word, word, guess):
     """
 
     When User answered wrong, this function will run.
@@ -245,15 +246,16 @@ def display_wrong_answer(display_current, attempts, scrambled_word, word):
         ")",
     )
     print(RED_LINE)
-    print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
-    time.sleep(1)
+    print(Fore.RED + "(눈_눈)".ljust(200))
+    print("You answerd:" + Fore.RESET, Fore.YELLOW + guess + Fore.RESET)
+    time.sleep(2)
     text_effect_fast("Moving on...")
     sys.stdout.write("\033[F")
     time.sleep(3)
     clear_terminal()
 
 
-def display_right_answer(display_current, attempts, scrambled_word):
+def display_right_answer(display_current, attempts, scrambled_word, guess):
     """
 
     When User answered correct, this function will run.
@@ -266,6 +268,8 @@ def display_right_answer(display_current, attempts, scrambled_word):
     print(Fore.GREEN + scrambled_word, "      CORRECT!" + Fore.RESET)
     print(GREEN_LINE)
     print(Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
+    print(Fore.GREEN + "You answerd:" + Fore.RESET, Fore.YELLOW +
+          guess + Fore.RESET)
     time.sleep(1)
     text_effect_fast("Moving on...")
     sys.stdout.write("\033[F")
@@ -314,12 +318,12 @@ def start_game():
         if guess == word:
 
             display_right_answer(display_current,
-                                 attempts, scrambled_word)
+                                 attempts, scrambled_word, guess)
 
         else:
 
             display_wrong_answer(display_current,
-                                 attempts, scrambled_word, word)
+                                 attempts, scrambled_word, word, guess)
             attempts -= 1
 
         display_current += 1
