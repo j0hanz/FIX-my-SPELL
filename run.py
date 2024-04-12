@@ -28,6 +28,17 @@ WORDS_TO_PLAY = 10
 DISPLAY_CURRENT_WORD = 1
 RED_LINE = Fore.RED + color.BOLD + word_art.line + color.END + Fore.RESET
 GREEN_LINE = Fore.GREEN + color.BOLD + word_art.line + color.END + Fore.RESET
+BOLD_LINE = color.BOLD + word_art.line + color.END
+
+
+def start_count():
+    text_effect_fast("Starting in...")
+    print("3")
+    time.sleep(1)
+    print("2")
+    time.sleep(1)
+    print("1")
+    time.sleep(1)
 
 
 def remove_line():
@@ -37,6 +48,7 @@ def remove_line():
 
     """
     sys.stdout.write("\033[F")
+    sys.stdout.write("\033[K")
 
 
 def text_effect_fast(text):
@@ -77,15 +89,17 @@ def get_valid_answer():
 
     This function validates If user enters a letter.
     If user didn't type a letter, It will stay and ask for valid answer.
+    Also If user accidentally typed one letter and return It,
+    the answer will be Invalid.
 
     """
     while True:
         user_input = input("-> ")
         remove_line()
-        if user_input.isalpha():
+        if user_input.isalpha() and len(user_input) >= 2:
             return user_input.lower()
-        print(Fore.RED + "Invalid choice!" + Fore.RESET,
-              "You can only use letters:")
+        print(Fore.RED + "Invalid!" + Fore.RESET,
+              "Try again.")
 
 
 def game_over_victory():
@@ -290,9 +304,9 @@ def start_game():
         scrambled_word = scramble_word(word)
         print(word_art.game)
         print(f"| {display_current}/10 |" f"     | {attempts} 🤍  |")
-        print(color.BOLD + word_art.line + color.END)
+        print(BOLD_LINE)
         print(scrambled_word)
-        print(color.BOLD + word_art.line + color.END)
+        print(BOLD_LINE)
         print("".ljust(200))
         guess = get_valid_answer()
         clear_terminal()
@@ -362,13 +376,7 @@ def start_screen():
     """
     while True:
         print(Fore.BLUE + word_art.welcome + Fore.RESET)
-        text_effect_fast("Starting in...")
-        print("3")
-        time.sleep(1)
-        print("2")
-        time.sleep(1)
-        print("1")
-        time.sleep(1)
+        start_count()
         break
     clear_terminal()
 
@@ -399,13 +407,7 @@ def main():
         print(Fore.YELLOW + "(✪‿✪)" + Fore.RESET.ljust(200))
         text_effect(f"Let's get started {user_name}!")
         time.sleep(1)
-        text_effect_fast("Starting in...")
-        print("3")
-        time.sleep(1)
-        print("2")
-        time.sleep(1)
-        print("1")
-        time.sleep(1)
+        start_count()
         break
     clear_terminal()
     start_game()
