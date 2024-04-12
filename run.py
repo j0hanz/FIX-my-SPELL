@@ -229,13 +229,13 @@ def user_input():
         text_effect("What is your name?")
         time.sleep(0.5)
         text_effect_fast("Press enter If you dont want to disclose your name")
-        user_name = input("").capitalize()
+        user_name = input("-> ").capitalize()
         if user_name == "":
             user_name = "User"
             break
         elif not user_name.isalpha():
             clear_terminal()
-            print("".ljust(200))
+            print(LOGO)
             print(CONFUSED_FACE)
             text_effect(f"{user_name}?\nIs that really your name?")
             text_effect("Nah try again.\n")
