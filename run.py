@@ -30,7 +30,16 @@ RED_LINE = Fore.RED + color.BOLD + word_art.line + color.END + Fore.RESET
 GREEN_LINE = Fore.GREEN + color.BOLD + word_art.line + color.END + Fore.RESET
 BOLD_LINE = color.BOLD + word_art.line + color.END
 LOGO = Fore.BLUE + word_art.welcome + Fore.RESET
-
+GAME = word_art.game
+GAME_WRONG_ANSWER = Fore.RED + word_art.game + Fore.RESET
+GAME_CORRECT_ANSWER = Fore.GREEN + word_art.game + Fore.RESET
+GAME_VICTORY = Fore.GREEN + word_art.victory.ljust(200) + Fore.RESET
+GAME_FAIL = Fore.RED + word_art.lose.ljust(200) + Fore.RESET
+RULES = word_art.instructions
+SAD_SMILE = Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET
+CONFUSED_FACE = Fore.YELLOW + "(・・)" + Fore.RESET
+ANGRY_FACE = Fore.RED + "(⩺_⩹)".ljust(200)
+HAPPY_FACE = Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET
 
 def start_count():
     text_effect_fast("Starting in...")
@@ -110,7 +119,7 @@ def game_over_victory():
 
     """
     clear_terminal()
-    print(Fore.GREEN + word_art.victory.ljust(200) + Fore.RESET)
+    print(GAME_VICTORY)
     print(Fore.GREEN + "ヾ(＾∇＾)".ljust(200) + Fore.RESET)
     text_effect("Well done! You completed the game!")
     time.sleep(3)
@@ -130,8 +139,8 @@ def game_over_fail():
 
     """
     clear_terminal()
-    print(Fore.RED + word_art.lose.ljust(200) + Fore.RESET)
-    print(Fore.RED + "(눈_눈)".ljust(200) + Fore.RESET)
+    print(GAME_FAIL)
+    print(SAD_SMILE)
     text_effect("All attempts are used... Game over!")
     time.sleep(2)
     text_effect_fast("Leaving...")
@@ -169,7 +178,7 @@ def user_input():
         elif not user_name.isalpha():
             clear_terminal()
             print("".ljust(200))
-            print(Fore.YELLOW + "(ᴗ˳ᴗ)" + Fore.RESET)
+            print(CONFUSED_FACE)
             text_effect(f"{user_name}?\nIs that really your name?")
             text_effect("Nah try again.\n")
         else:
@@ -185,7 +194,7 @@ def game_rules(data):
 
     """
     if data == "Y":
-        print(word_art.instructions)
+        print(RULES)
         text_effect("Press enter to continue")
         input("")
         clear_terminal()
@@ -236,7 +245,7 @@ def display_wrong_answer(display_current, attempts,
 
     """
 
-    print(Fore.RED + word_art.game + Fore.RESET)
+    print(GAME_WRONG_ANSWER)
     print(f"| {display_current}/10 |" f"     | {attempts} 💔  |")
     print(RED_LINE)
     print(
@@ -247,7 +256,7 @@ def display_wrong_answer(display_current, attempts,
         ")",
     )
     print(RED_LINE)
-    print(Fore.RED + "(눈_눈)".ljust(200))
+    print(ANGRY_FACE)
     print("You answerd:" + Fore.RESET, Fore.YELLOW + guess + Fore.RESET)
     time.sleep(2)
     text_effect_fast("Moving on...")
@@ -263,12 +272,12 @@ def display_right_answer(display_current, attempts, scrambled_word, guess):
 
     """
 
-    print(Fore.GREEN + word_art.game + Fore.RESET)
+    print(GAME_CORRECT_ANSWER)
     print(f"| {display_current}/10 |" f"     | {attempts} 💚  |")
     print(GREEN_LINE)
     print(Fore.GREEN + scrambled_word, "      CORRECT!" + Fore.RESET)
     print(GREEN_LINE)
-    print(Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
+    print(HAPPY_FACE)
     print(Fore.GREEN + "You answerd:" + Fore.RESET, Fore.YELLOW +
           guess + Fore.RESET)
     time.sleep(1)
@@ -396,7 +405,7 @@ def main():
     user_name = user_input()
     clear_terminal()
     print(LOGO)
-    print(Fore.YELLOW + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET)
+    print(HAPPY_FACE)
     text_effect(f"Hello {user_name}!\n")
     time.sleep(1)
     while True:
@@ -408,7 +417,7 @@ def main():
 
     while True:
         print(LOGO)
-        print(Fore.YELLOW + "(✪‿✪)" + Fore.RESET.ljust(200))
+        print(Fore.GREEN + "(✪‿✪)" + Fore.RESET.ljust(200))
         text_effect(f"Let's get started {user_name}!")
         time.sleep(1)
         start_count()
