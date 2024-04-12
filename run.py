@@ -113,22 +113,26 @@ def rules_answer():
             return True
         else:
             try:
-                #If user typed a number.
+                # If user typed a number.
                 if valid_input.isnumeric():
-                    raise ValueError(f"[ {valid_input} ] \nI didn't ask for a number.")
-                #If user didn't entered a letter.
+                    raise ValueError(
+                        f"[ {valid_input} ] \nI didn't ask for a number.")
+                # If user didn't entered a letter.
                 if not valid_input.isalpha():
-                    raise ValueError(f"[ {valid_input} ] \nThat's not what i asked.")
-                #If user only entered more than one letter.
+                    raise ValueError(
+                        f"[ {valid_input} ] \nThat's not what i asked.")
+                # If user only entered more than one letter.
                 if len(valid_input) >= 2:
                     raise ValueError(
                         f"[ {valid_input} ] \nYou can only enter one letter."
                     )
-                #If user entered a letter but not Y or N.
+                # If user entered a letter but not Y or N.
                 if valid_input.isalpha():
-                    raise ValueError(f"[ {valid_input} ] \nPlease enter 'Y' or 'N'.")
+                    raise ValueError(
+                        f"[ {valid_input} ] \nPlease enter 'Y' or 'N'.")
             except ValueError as e:
-                print(Fore.RED + "Invalid choice:" + Fore.RESET, f"{e} Try again...\n")
+                print(Fore.RED + "Invalid choice:" +
+                      Fore.RESET, f"{e} Try again...\n")
                 remove_line()
 
 
@@ -143,20 +147,22 @@ def get_valid_answer():
     while True:
         user_input = input("-> ")
         remove_line()
-        #Minimum of 2 letters to accept an answer.
+        # Minimum of 2 letters to accept an answer.
         if user_input.isalpha() and len(user_input) >= 2:
             return user_input.lower()
         else:
             try:
-                #If user typed a number.
+                # If user typed a number.
                 if user_input.isnumeric():
                     raise ValueError(f"{user_input} \nThere is no number...")
-                #If user didn't entered a letter.
+                # If user didn't entered a letter.
                 if not user_input.isalpha():
-                    raise ValueError(f"{user_input} \nOnly letters are allowed...")
-                #If user only entered one letter.
+                    raise ValueError(
+                        f"{user_input} \nOnly letters are allowed...")
+                # If user only entered one letter.
                 if user_input.isalpha():
-                    raise ValueError(f"{user_input} \nYou only wrote one letter...")
+                    raise ValueError(
+                        f"{user_input} \nYou only wrote one letter...")
             except ValueError as e:
                 print(
                     Fore.RED + "Invalid answer!" + Fore.RESET,
@@ -267,7 +273,8 @@ def scramble_word(word):
     return first_letter + second_letter + "".join(middle_letters) + last_letter
 
 
-def display_wrong_answer(display_current, attempts, scrambled_word, word, guess):
+def display_wrong_answer(display_current, attempts, scrambled_word,
+                         word, guess):
     """
 
     When User answered wrong, this function will run.
@@ -308,7 +315,8 @@ def display_right_answer(display_current, attempts, scrambled_word, guess):
     print(Fore.GREEN + scrambled_word, "      CORRECT!" + Fore.RESET)
     print(GREEN_LINE)
     print(HAPPY_FACE)
-    print(Fore.GREEN + "You answerd:" + Fore.RESET, Fore.YELLOW + guess + Fore.RESET)
+    print(Fore.GREEN + "You answerd:" + Fore.RESET,
+          Fore.YELLOW + guess + Fore.RESET)
     time.sleep(1)
     text_effect_fast("Moving on...")
     sys.stdout.write("\033[F")
@@ -356,11 +364,13 @@ def start_game():
 
         if guess == word:
 
-            display_right_answer(display_current, attempts, scrambled_word, guess)
+            display_right_answer(display_current, attempts,
+                                 scrambled_word, guess)
 
         else:
 
-            display_wrong_answer(display_current, attempts, scrambled_word, word, guess)
+            display_wrong_answer(display_current, attempts,
+                                 scrambled_word, word, guess)
             attempts -= 1
 
         display_current += 1
@@ -393,22 +403,26 @@ def play_again():
             return False
         else:
             try:
-                #If user typed a number.
+                # If user typed a number.
                 if restart.isnumeric():
-                    raise ValueError(f"[ {restart} ] \nI didn't ask for a number.")
-                #If user didn't entered a letter.
+                    raise ValueError(
+                        f"[ {restart} ] \nI didn't ask for a number.")
+                # If user didn't entered a letter.
                 if not restart.isalpha():
-                    raise ValueError(f"[ {restart} ] \nThat's not what i asked.")
-                #If user only entered more than one letter.
+                    raise ValueError(
+                        f"[ {restart} ] \nThat's not what i asked.")
+                # If user only entered more than one letter.
                 if len(restart) >= 2:
                     raise ValueError(
                         f"[ {restart} ] \nYou can only enter one letter."
                     )
-                #If user entered a letter but not Y or N.
+                # If user entered a letter but not Y or N.
                 if restart.isalpha():
-                    raise ValueError(f"[ {restart} ] \nPlease enter 'Y' or 'N'.")
+                    raise ValueError(
+                        f"[ {restart} ] \nPlease enter 'Y' or 'N'.")
             except ValueError as e:
-                print(Fore.RED + "Invalid choice:" + Fore.RESET, f"{e} Try again...\n")
+                print(Fore.RED + "Invalid choice:" +
+                      Fore.RESET, f"{e} Try again...\n")
                 remove_line()
 
 
