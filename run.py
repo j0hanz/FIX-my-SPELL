@@ -41,6 +41,7 @@ CONFUSED_FACE = Fore.YELLOW + "(・・)" + Fore.RESET
 ANGRY_FACE = Fore.RED + "(⩺_⩹)".ljust(200)
 HAPPY_FACE = Fore.GREEN + "⊂(◉‿◉)つ".ljust(200) + Fore.RESET
 
+
 def start_count():
     text_effect_fast("Starting in...")
     print("3")
