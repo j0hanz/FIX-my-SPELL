@@ -95,22 +95,73 @@ def text_effect(text):
     print()
 
 
+def rules_answer():
+    """
+    Validates the user's input for yes or no.
+    """
+    while True:
+        valid_input = input("(Y/N) -> ").upper()
+        remove_line()
+        if valid_input == "Y":
+            clear_terminal()
+            print(RULES)
+            text_effect("Press enter to continue")
+            input("")
+            clear_terminal()
+            return True
+        elif valid_input == "N":
+            return True
+        else:
+            try:
+                #If user typed a number.
+                if valid_input.isnumeric():
+                    raise ValueError(f"[ {valid_input} ] \nI didn't ask for a number.")
+                #If user didn't entered a letter.
+                if not valid_input.isalpha():
+                    raise ValueError(f"[ {valid_input} ] \nThat's not what i asked.")
+                #If user only entered more than one letter.
+                if len(valid_input) >= 2:
+                    raise ValueError(
+                        f"[ {valid_input} ] \nYou can only enter one letter."
+                    )
+                #If user entered a letter but not Y or N.
+                if valid_input.isalpha():
+                    raise ValueError(f"[ {valid_input} ] \nPlease enter 'Y' or 'N'.")
+            except ValueError as e:
+                print(Fore.RED + "Invalid choice:" + Fore.RESET, f"{e} Try again...\n")
+                remove_line()
+
+
 def get_valid_answer():
     """
 
     This function validates If user enters a letter.
-    If user didn't type a letter, It will stay and ask for valid answer.
-    Also If user accidentally typed one letter and return It,
-    the answer will be Invalid.
+    If user didn't type a letter, It will stay and ask for a valid answer.
+    Also If user accidentally typed one letter, the answer will be invalid.
 
     """
     while True:
         user_input = input("-> ")
         remove_line()
+        #Minimum of 2 letters to accept an answer.
         if user_input.isalpha() and len(user_input) >= 2:
             return user_input.lower()
-        print(Fore.RED + "Invalid answer!" + Fore.RESET,
-              Fore.YELLOW + f"[{user_input}]" + Fore.RESET, "Try again...")
+        else:
+            try:
+                #If user typed a number.
+                if user_input.isnumeric():
+                    raise ValueError(f"{user_input} \nThere is no number...")
+                #If user didn't entered a letter.
+                if not user_input.isalpha():
+                    raise ValueError(f"{user_input} \nOnly letters are allowed...")
+                #If user only entered one letter.
+                if user_input.isalpha():
+                    raise ValueError(f"{user_input} \nYou only wrote one letter...")
+            except ValueError as e:
+                print(
+                    Fore.RED + "Invalid answer!" + Fore.RESET,
+                    f"{e}",
+                )
 
 
 def game_over_victory():
@@ -187,27 +238,6 @@ def user_input():
     return user_name
 
 
-def game_rules(data):
-    """
-
-    Data for how to play. User can choose to show the rules for the game.
-    Or continue without showing the rules.
-
-    """
-    if data == "Y":
-        print(RULES)
-        text_effect("Press enter to continue")
-        input("")
-        clear_terminal()
-        return True
-    elif data == "N":
-        return True
-
-    else:
-        print(LOGO)
-        print("Invalid choice. Please enter 'Y' or 'N'.")
-
-
 def choose_word(used_words):
     """
 
@@ -237,8 +267,7 @@ def scramble_word(word):
     return first_letter + second_letter + "".join(middle_letters) + last_letter
 
 
-def display_wrong_answer(display_current, attempts,
-                         scrambled_word, word, guess):
+def display_wrong_answer(display_current, attempts, scrambled_word, word, guess):
     """
 
     When User answered wrong, this function will run.
@@ -279,8 +308,7 @@ def display_right_answer(display_current, attempts, scrambled_word, guess):
     print(Fore.GREEN + scrambled_word, "      CORRECT!" + Fore.RESET)
     print(GREEN_LINE)
     print(HAPPY_FACE)
-    print(Fore.GREEN + "You answerd:" + Fore.RESET, Fore.YELLOW +
-          guess + Fore.RESET)
+    print(Fore.GREEN + "You answerd:" + Fore.RESET, Fore.YELLOW + guess + Fore.RESET)
     time.sleep(1)
     text_effect_fast("Moving on...")
     sys.stdout.write("\033[F")
@@ -328,13 +356,11 @@ def start_game():
 
         if guess == word:
 
-            display_right_answer(display_current,
-                                 attempts, scrambled_word, guess)
+            display_right_answer(display_current, attempts, scrambled_word, guess)
 
         else:
 
-            display_wrong_answer(display_current,
-                                 attempts, scrambled_word, word, guess)
+            display_wrong_answer(display_current, attempts, scrambled_word, word, guess)
             attempts -= 1
 
         display_current += 1
@@ -343,15 +369,17 @@ def start_game():
 def play_again():
     """
 
-    When the game Is finished, the game will ask If User wants to play again.
+    When the game Is finished, the game will ask If user wants to play again.
 
     """
     clear_terminal()
     print(LOGO)
     text_effect("Do you want to restart the game?")
     while True:
-        restart = input("(Y/N): ").upper()
+        restart = input("(Y/N) -> ").upper()
         if restart == "Y":
+            clear_terminal()
+            print(LOGO)
             text_effect_fast("Great! Restarting the game...")
             time.sleep(2)
             clear_terminal()
@@ -364,7 +392,24 @@ def play_again():
             main()
             return False
         else:
-            print("Invalid choice. Please enter 'Y' or 'N'.\n")
+            try:
+                #If user typed a number.
+                if restart.isnumeric():
+                    raise ValueError(f"[ {restart} ] \nI didn't ask for a number.")
+                #If user didn't entered a letter.
+                if not restart.isalpha():
+                    raise ValueError(f"[ {restart} ] \nThat's not what i asked.")
+                #If user only entered more than one letter.
+                if len(restart) >= 2:
+                    raise ValueError(
+                        f"[ {restart} ] \nYou can only enter one letter."
+                    )
+                #If user entered a letter but not Y or N.
+                if restart.isalpha():
+                    raise ValueError(f"[ {restart} ] \nPlease enter 'Y' or 'N'.")
+            except ValueError as e:
+                print(Fore.RED + "Invalid choice:" + Fore.RESET, f"{e} Try again...\n")
+                remove_line()
 
 
 def thank_you_message():
@@ -411,9 +456,8 @@ def main():
     time.sleep(1)
     while True:
         text_effect_fast("Do you want to read the rules?")
-        rules_input = input("(Y/N): ").upper()
-        clear_terminal()
-        if game_rules(rules_input):
+        if rules_answer():
+            clear_terminal()
             break
 
     while True:
