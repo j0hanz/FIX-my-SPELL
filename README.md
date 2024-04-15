@@ -1,6 +1,8 @@
 
 ![logo](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/a848ebda-e872-4e95-a57c-865cf2cba7e3)
 
+### Practise and challenge your spelling knowledge! :heavy_check_mark:
+
 #### [Play here!](https://fix-my-spell-7e3aef96045e.herokuapp.com/)
 
 
@@ -21,6 +23,8 @@
     - [Known Issues](#known-issues)
     - [Fixed bugs](#fixed-bugs)
 - [Deployment](#deployment)
+    - [Heroku](#heroku)
+    - [Github](#github)
 - [Credits](#credits)
     - [Code](#code)
     - [Acknowledgements](#acknowledgements)
@@ -28,6 +32,15 @@
 # FIX-my-SPELL Game
 
 Fix My Spell is a Python console-based game where players are tasked with correcting misspelled words. It presents players with words containing intentional spelling errors, and their objective is to identify and rectify these errors to form the correct word. The game is targeted towards individuals of all ages who are interested in enhancing their vocabulary and spelling skills in a fun and interactive way.
+
+## Flowchart
+
+#### Preview
+
+This is the first drawing for this game. Done via [Lucidchart](https://www.lucidchart.com/pages/)
+
+![FIX-my_SPELL_PP3](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/64074b1d-ff79-4c46-a219-ce5f501b18d3)
+
 
 ## User Stories
 
@@ -176,11 +189,15 @@ Playing Fix My Spell is simple and straightforward. Follow these steps to enjoy 
 
 # Technologies used
 
-* Python: The core programming language used to develop the game logic and functionality.
+* [Python](https://www.python.org/downloads/): The core programming language used to develop the game logic and functionality.
 
-* Colorama: A Python library utilized for adding colored text and styling to the console output, enhancing the visual appeal of the game.
-
-* Word Art: Another Python library employed for generating ASCII art text, contributing to the visual presentation of the game interface.
+* [Colorama](https://pypi.org/project/colorama/): A Python library utilized for adding colored text and styling to the console output, enhancing the visual appeal of the game.
+* [Fancy Text Generator](https://www.fancytextpro.com/) - 
+* [Github](https://github.com/) - To save and store files for this site.
+* [Heroku](https://www.heroku.com/) - Used to deploy the live project
+* [Gitpod](https://www.gitpod.io/) - For workspace.
+* [Spell Checker](https://chromewebstore.google.com/detail/spell-checker-for-chrome/jfpdnkkdgghlpdgldicfgnnnkhdfhocg) - For spell control.
+* [Reverso](https://www.reverso.net/spell-checker/english-spelling-grammar/) - For spell & grammar control.
 
 # Testing
 
@@ -230,7 +247,56 @@ xxxxxx
 
 # Deployment
 
-xxxxxx
+The app was deployed through Heroku. The steps are as following:
+
+Login (or signup) to [Heroku](https://id.heroku.com/login) and [Github](https://github.com/login)
+
+### Heroku
+
+1. After creating a Heroku account, click "New" to create a new app from the dashboard.
+
+2. Enter a unique app name, select your region and click "Create app".
+
+3. Navigate to settings tab and scroll down to view the Config Vars section and click "Reveal Config Vars".
+
+4. Enter port into the Key box and 8000 into the Value box and click the Add button.
+
+5. Navigate to Buildpacks and click "Add buildpack".
+
+6. First add Python, then add NodeJS into Buildpacks. (Ensure that it is in order!)
+
+![heroku](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/3a387388-680e-45cb-bcc2-1571903264d1)
+
+7. Navigate to Deply tab (same navigationbar as settings).
+
+8. Choose GitHub as the Deployment method.
+
+9. Search for the repository name, select the branch that you would like to build from, and connect it via the "Connect" button.
+
+10. Choose from "Automatic" or "Manual" deployment options, I went for automatic. Click "Deploy Branch".
+
+11. When the build is finished, click "View" link to bring you to your deployed site. You can also find the link via Settings -> Domains.
+__________________________________________________________________________________________________________
+
+### Github
+
+Go to the repository for this project -> [FIX-my-SPELL](https://github.com/j0hanz/FIX-my-SPELL/tree/main)
+
+#### Forking
+
+Click the Fork button in the top right corner.
+
+#### Clone
+
+1. Click the button called Code
+
+2. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+
+3. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+
+4. Type 'git clone' into the terminal and then paste the link you copied. Press enter.
+
+__________________________________________________________________________________________________________
 
 # Credits
 xxxxxx
