@@ -126,30 +126,25 @@ Play Again:
 
 __________________________________________________________________________________________________________
 
-#### Progress
+Progress:
 
 ![progress_bar](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/86d3b5b5-7942-42b4-ba5d-ac1ef19a5f52)
 
 __________________________________________________________________________________________________________
 
-#### Current Word
+Current Misspelld Word:
 
 ![current_word](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/f029caf1-3768-4e76-ad1f-ccfe7c7dc5c3)
 
 __________________________________________________________________________________________________________
 
-#### Type you guess here
+Type you guess and correction here:
 
 The arrow icon shown below is where you type
 
 ![type_here](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/9dace81d-361c-4f62-8898-f5295d4f2afc)
 
 __________________________________________________________________________________________________________
-
-![restart_game](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/5334c59f-f4bb-42ef-ad3d-323a767fdb3d)
-
-__________________________________________________________________________________________________________
-
 
 ## Future Implementations
 
