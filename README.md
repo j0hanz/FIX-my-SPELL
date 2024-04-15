@@ -189,7 +189,7 @@ ________________________________________________________________________________
 
 # How to play
 
-Playing Fix My Spell is simple and straightforward. Follow these steps to enjoy the game:
+Playing [FIX-my-SPELL](https://fix-my-spell-7e3aef96045e.herokuapp.com/) is simple and straightforward. Follow these steps to enjoy the game:
 
 #### Start the Game: 
 
