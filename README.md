@@ -66,25 +66,69 @@ xxxxxx
 
 # Features
 
+## Existing Features
+
+Word Scramble Gameplay:
 * Randomly selects words from a predefined list and scrambles them for the player to unscramble.
 
-* Provides a limited number of attempts for each word.
+Interactive User Interface:
+* Engage with a colorful and dynamic console interface, featuring ASCII art and colorful text.
 
-* Displays game status, including current word, remaining attempts, and progress.
+Typing Effects:
+* Experience smooth and immersive typing effects for a more interactive user experience.
 
-* Gives feedback on correct and incorrect answers.
+Handling User Input:
+* If the user enters a value that is not requested, a error message will display.
+* Example:
+  - Numeric Input
+  - Non-Alphabetic Characters
+  - Single Letter Input (When guessing a word)
 
+__________________________________________________________________________________________________________
+
+### Example imgages:
+
+![Invalid_YES](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/eea66c1f-1068-47fc-a84a-f9e1ca469095)
+
+__________________________________________________________________________________________________________
+
+![Invalid_word+!](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/1af99837-717a-4a10-a625-e704fa0adb0f)
+
+__________________________________________________________________________________________________________
+
+![Invalid_T](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/46fc14b7-6c5c-4b59-b6e3-34334246017c)
+
+__________________________________________________________________________________________________________
+
+![Invalid_number](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/542fc786-fdea-4aba-af1b-4125e540c711)
+
+__________________________________________________________________________________________________________
+
+![Invalid_guess_number](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/e8d06b70-81e1-418b-b7d1-9e348bb87a22)
+
+__________________________________________________________________________________________________________
+
+![Invalid_Enter](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/6f1958f6-c3d6-41b7-a76b-6f3f0c9f9254)
+
+__________________________________________________________________________________________________________
+
+Limited Attempts:
+* Provides a limited number of attempts for each wrong answer.
+
+![numer_of_attempts](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/ae7d0b0f-bade-49a0-944d-7ceb30257ae3)
+
+__________________________________________________________________________________________________________
+
+Play Again:
 * Supports replayability with an option to restart the game.
+
+![restart_game](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/5334c59f-f4bb-42ef-ad3d-323a767fdb3d)
+
+__________________________________________________________________________________________________________
 
 #### Progress
 
 ![progress_bar](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/86d3b5b5-7942-42b4-ba5d-ac1ef19a5f52)
-
-__________________________________________________________________________________________________________
-
-#### Attempts
-
-![numer_of_attempts](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/ae7d0b0f-bade-49a0-944d-7ceb30257ae3)
 
 __________________________________________________________________________________________________________
 
