@@ -1,7 +1,9 @@
 """
 
 List of words:
-I used ChatGPT to give me an example of words with minimum 6 letters and the maximum 9 letters.
+
+I used ChatGPT to give me an example of words,
+with minimum 6 letters and the maximum 9 letters.
 
 """
 
