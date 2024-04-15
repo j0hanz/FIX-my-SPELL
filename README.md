@@ -32,7 +32,7 @@
 
 # FIX-my-SPELL Game
 
-Fix My Spell is a console-based Python game where players correct misspelled words. The game presents words with intentional errors, and players must identify and fix them to form the correct word. It's designed for anyone looking to improve their spelling and vocabulary skills in a fun and interactive way.
+FIX-my-SPELL is a console-based Python game where players correct misspelled words. The game presents words with intentional errors, and players must identify and fix them to form the correct word. It's designed for anyone looking to improve their spelling and vocabulary skills in a fun and interactive way.
 
 ## Flowchart
 
