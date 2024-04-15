@@ -32,7 +32,7 @@
 
 # FIX-my-SPELL Game
 
-Fix My Spell is a Python console-based game where players are tasked with correcting misspelled words. It presents players with words containing intentional spelling errors, and their objective is to identify and rectify these errors to form the correct word. The game is targeted towards individuals of all ages who are interested in enhancing their vocabulary and spelling skills in a fun and interactive way.
+Fix My Spell is a console-based Python game where players correct misspelled words. The game presents words with intentional errors, and players must identify and fix them to form the correct word. It's designed for anyone looking to improve their spelling and vocabulary skills in a fun and interactive way.
 
 ## Flowchart
 
@@ -95,7 +95,7 @@ Handling User Input:
 
 __________________________________________________________________________________________________________
 
-### Example error imgages:
+### Example of error imgages:
 
 #### Answer YES/NO instead of Y/N:
 
@@ -262,9 +262,9 @@ Complete all words successfully to achieve victory, or exhaust your attempts to 
 
   __________________________________________________________________________________________________________
 
-#### Enjoy and Learn:
+Enjoy and Learn:
 
-Have fun while enhancing your vocabulary and spelling skills in an engaging and interactive gaming experience!
+* Have fun while improving your vocabulary and spelling skills with this engaging and interactive game!"
 
 # Technologies used
 
@@ -272,17 +272,19 @@ Have fun while enhancing your vocabulary and spelling skills in an engaging and 
 
 * [Colorama](https://pypi.org/project/colorama/): A Python library utilized for adding colored text and styling to the console output, enhancing the visual appeal of the game.
 
-* [Fancy Text Generator](https://www.fancytextpro.com/) - Utilized to generate stylish and unique fonts for enhancing the visual appeal of the game interface.
+* [Fancy Text Generator](https://www.fancytextpro.com/): - Utilized to generate stylish and unique fonts for enhancing the visual appeal of the game interface.
 
-* [Github](https://github.com/) - To save and store files for this site.
+* [Github](https://github.com/): - To save and store files for this site.
 
-* [Heroku](https://www.heroku.com/) - Used to deploy the live project
+* [Heroku](https://www.heroku.com/): - Used to deploy the live project
 
-* [Gitpod](https://www.gitpod.io/) - For workspace.
+* [Gitpod](https://www.gitpod.io/): - For workspace.
 
-* [Spell Checker](https://chromewebstore.google.com/detail/spell-checker-for-chrome/jfpdnkkdgghlpdgldicfgnnnkhdfhocg) - For spell control.
+* [Spell Checker](https://chromewebstore.google.com/detail/spell-checker-for-chrome/jfpdnkkdgghlpdgldicfgnnnkhdfhocg): - For spell control.
 
-* [Reverso](https://www.reverso.net/spell-checker/english-spelling-grammar/) - For spell & grammar control.
+* [Reverso](https://www.reverso.net/spell-checker/english-spelling-grammar/): - For spell & grammar control.
+
+* [ChatGPT](https://chat.openai.com/): - Provided 50 words ranging from 6 to 9 letters in length for the game. 
 
 # Testing
 
