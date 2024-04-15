@@ -26,6 +26,7 @@
     - [Heroku](#heroku)
     - [Github](#github)
 - [Credits](#credits)
+    - [Youtube Channels](#youtube-channels)
     - [Code](#code)
     - [Acknowledgements](#acknowledgements)
 
@@ -35,20 +36,29 @@ Fix My Spell is a Python console-based game where players are tasked with correc
 
 ## Flowchart
 
-#### Preview
+#### Pre Design
 
 This is the first drawing for this game. Done via [Lucidchart](https://www.lucidchart.com/pages/)
 
 ![FIX-my_SPELL_PP3](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/64074b1d-ff79-4c46-a219-ce5f501b18d3)
 
+*Please note that additional features have been implemented since this drawing was created, but the overall functionality remains very similar.*
 
 ## User Stories
 
-xxxxxx
+* I want to enhance my spelling skills
+
+* I seek opportunities to discover and learn new words
+
+* I play the game for fun and entertainment
 
 ### User Goals
 
-xxxxxx
+Spelling Practice:
+* Users want to get better at spelling words correctly by playing the game.
+
+Learn New Words:
+* Users aim to discover and remember new words while playing.
 
 ## User Experience
 
@@ -66,8 +76,6 @@ xxxxxx
 
 # Features
 
-## Existing Features
-
 Word Scramble Gameplay:
 * Randomly selects words from a predefined list and scrambles them for the player to unscramble.
 
@@ -79,6 +87,7 @@ Typing Effects:
 
 Handling User Input:
 * If the user enters a value that is not requested, a error message will display.
+
 * Example:
   - Numeric Input
   - Non-Alphabetic Characters
@@ -86,34 +95,53 @@ Handling User Input:
 
 __________________________________________________________________________________________________________
 
-### Example imgages:
+### Example error imgages:
 
-![Invalid_YES](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/eea66c1f-1068-47fc-a84a-f9e1ca469095)
+#### Answer YES/NO instead of Y/N:
+
+![Invalid_YES](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/70e553af-bb5d-4fe1-be03-35d61e9fb77f)
+
+*This image demonstrates what happens when the user inputs a word instead of Y or N.*
+__________________________________________________________________________________________________________
+
+#### Non-Letter Character in Word::
+
+![Invalid_word+!](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/7f8588db-98c5-4a92-a366-4c276c6984e4)
+
+*This image demonstrates what happens when a non-letter character is included in a word.*
+__________________________________________________________________________________________________________
+
+#### Incorrect Letter Input:
+
+![Invalid_T](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/faf0f5f9-5c24-4749-a6f7-cfb74145d593)
+
+*This image demonstrates what happens when an incorrect letter is input.*
+__________________________________________________________________________________________________________
+
+#### Number Input:
+
+![Invalid_number](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/9c57e781-cb27-477f-922b-88bca3f122de)
+
+*This image demonstrates what occurs when a user inputs a number instead or a letter.*
 
 __________________________________________________________________________________________________________
 
-![Invalid_word+!](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/1af99837-717a-4a10-a625-e704fa0adb0f)
+#### Number Input for Correcting Misspelled Word:
 
+![Invalid_guess_number](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/3227c874-c09d-4312-94ba-412c40441ee4)
+
+*This image demonstrates what happens when a number is input instead of a letter.*
 __________________________________________________________________________________________________________
 
-![Invalid_T](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/46fc14b7-6c5c-4b59-b6e3-34334246017c)
+#### Blank Input:
 
-__________________________________________________________________________________________________________
+![Invalid_Enter](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/d3d8fc1d-fd43-4525-af7a-2269e23ee6ec)
 
-![Invalid_number](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/542fc786-fdea-4aba-af1b-4125e540c711)
-
-__________________________________________________________________________________________________________
-
-![Invalid_guess_number](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/e8d06b70-81e1-418b-b7d1-9e348bb87a22)
-
-__________________________________________________________________________________________________________
-
-![Invalid_Enter](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/6f1958f6-c3d6-41b7-a76b-6f3f0c9f9254)
-
+*This image demonstrates what occurs when a user inputs blank.*
 __________________________________________________________________________________________________________
 
 Limited Attempts:
-* Provides a limited number of attempts for each wrong answer.
+* It indicates that there's a limited number of attempts for each wrong answer. Simply the number of tries the user has to correct each misspelled word
 
 ![numer_of_attempts](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/ae7d0b0f-bade-49a0-944d-7ceb30257ae3)
 
@@ -127,20 +155,21 @@ Play Again:
 __________________________________________________________________________________________________________
 
 Progress:
+* Indicates the current progress of the game.
 
 ![progress_bar](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/86d3b5b5-7942-42b4-ba5d-ac1ef19a5f52)
 
 __________________________________________________________________________________________________________
 
 Current Misspelld Word:
+* Displays the current misspelled word that needs correction.
 
 ![current_word](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/f029caf1-3768-4e76-ad1f-ccfe7c7dc5c3)
 
 __________________________________________________________________________________________________________
 
-Type you guess and correction here:
-
-The arrow icon shown below is where you type
+Type area:
+* The arrow icon indicates where users can input their guesses or corrections, indicating where users should begin typing.
 
 ![type_here](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/9dace81d-361c-4f62-8898-f5295d4f2afc)
 
@@ -151,6 +180,7 @@ ________________________________________________________________________________
 ### Difficulty Levels
 
 * Introduce multiple difficulty levels (e.g., Easy, Medium, Hard) to cater to players of varying skill levels.
+
 * Adjust parameters such as the number of attempts allowed per word, the complexity of the words, and the time limit for each round based on the selected difficulty level.
 
 ### Word Categories
@@ -161,81 +191,97 @@ ________________________________________________________________________________
 
 Playing Fix My Spell is simple and straightforward. Follow these steps to enjoy the game:
 
-1. Start the Game: Execute the main Python script to launch the game interface in the console. Live version here [->](https://fix-my-spell-7e3aef96045e.herokuapp.com/)
+#### Start the Game: 
+
+Execute the main Python script to launch the game interface in the console. Live version here [->](https://fix-my-spell-7e3aef96045e.herokuapp.com/)
 
    ![start_screen](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/4dfe3f62-d6a8-46e3-a34c-a7d7cbb7fe91)
 
    __________________________________________________________________________________________________________
 
 
-2. Enter Your Name (Optional): When prompted, provide your name for personalized interactions within the game. If user leaves it empty, the game will give you a name as 'User'.
+#### Enter Your Name (Optional): 
+
+This screen is where the game starts. You have the option to input your name here. If you prefer not to, the game will assign you the default name "User".
 
    ![user_name_request](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/f9d0c9b1-28c9-445f-8368-435234571d21)
 
    __________________________________________________________________________________________________________
 
-5. Read the Rules (Optional): Decide whether you want to read the game rules. Respond with "Y" for Yes or "N" for No.
-   word_wrong
+#### Read the Rules (Optional):
 
-#### Displays if user left their name empty
+Decide whether you want to read the game rules. Respond with "Y" for Yes or "N" for No.
 
   ![read_rules_y_n](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/57ecff0b-d092-4036-93ef-33b981c49ebb)
 
-  __________________________________________________________________________________________________________
-
-#### Displays if user entered a name
-
-  ![read_rules_name_enterd](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/4ce491bb-fea2-4c27-86d0-a06d4c03e9bc)
+  *The game will create a user named 'User', as shown on image above.*
 
   __________________________________________________________________________________________________________
 
-7. Begin Correcting Words: Once the game starts, you will be presented with words containing intentional spelling errors. Your task is to identify and correct these errors to form the correct word.
+#### Begin Correcting Words:
+
+During the game, you'll see words with spelling mistakes. Your job is to find and fix these mistakes to form the correct word.
 
   ![display_word](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/07687553-92d7-4b2e-a232-25d81f906c18)
 
   __________________________________________________________________________________________________________
 
-9. Input Your Answer: Enter your corrected version of the word when prompted. Ensure that your input consists of alphabetical characters and is at least two characters in length.
+#### Input Your Answer:
 
-#### Correct answer
+When prompted, type the corrected version of the word. Ensure that your input consists only of letters and is at least two characters long.
+
+##### Correct answer
 
   ![word_correct](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/5e7b7036-7c89-4c55-b414-2dfebc4c0443)
 
+  *When user spelled the word correctly.*
+
   __________________________________________________________________________________________________________
 
-#### Wrong answer
+##### Wrong answer
 
   ![word_wrong](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/cf1488a7-526a-4997-86b3-8aebe5a62497)
+
+  *When user spelled the word wrong.*
+  
   __________________________________________________________________________________________________________
 
-11. Continue Playing: Repeat steps 4 and 5 for each word presented by the game. Be mindful of the number of attempts available for each word.
+#### Victory or Defeat:
 
-12. Victory or Defeat: Complete all words successfully to achieve victory, or exhaust your attempts to experience defeat. You can choose to play again or exit the game once it concludes.
+Complete all words successfully to achieve victory, or exhaust your attempts to experience defeat. You can choose to play again or exit the game once it concludes.
 
-#### Victory
+##### Victory
 
   ![victory](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/92181512-1a50-49e3-bdc1-72ae4767032c)
 
   __________________________________________________________________________________________________________
 
-#### Fail
+##### Fail
 
   ![game_over](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/fa0710f7-a65f-40c5-9bd9-158e81d312e3)
 
   __________________________________________________________________________________________________________
 
-14. Enjoy and Learn: Have fun while enhancing your vocabulary and spelling skills in an engaging and interactive gaming experience!
+#### Enjoy and Learn:
+
+Have fun while enhancing your vocabulary and spelling skills in an engaging and interactive gaming experience!
 
 # Technologies used
 
 * [Python](https://www.python.org/downloads/): The core programming language used to develop the game logic and functionality.
 
 * [Colorama](https://pypi.org/project/colorama/): A Python library utilized for adding colored text and styling to the console output, enhancing the visual appeal of the game.
-* [Fancy Text Generator](https://www.fancytextpro.com/) - 
+
+* [Fancy Text Generator](https://www.fancytextpro.com/) - Utilized to generate stylish and unique fonts for enhancing the visual appeal of the game interface.
+
 * [Github](https://github.com/) - To save and store files for this site.
+
 * [Heroku](https://www.heroku.com/) - Used to deploy the live project
+
 * [Gitpod](https://www.gitpod.io/) - For workspace.
+
 * [Spell Checker](https://chromewebstore.google.com/detail/spell-checker-for-chrome/jfpdnkkdgghlpdgldicfgnnnkhdfhocg) - For spell control.
+
 * [Reverso](https://www.reverso.net/spell-checker/english-spelling-grammar/) - For spell & grammar control.
 
 # Testing
@@ -274,15 +320,15 @@ The affected file only contains text displayed on top.
 
 ## Bugs
 
-xxxxxx
-
 ### Known Issues
 
-xxxxxx
+* The game may scramble a word that is already correctly spelled. It doesn't happen often, but it might occur once in a while.
+
+* In a scenario where the user has only 1 attempt left and answers incorrectly for the last word shown, the game declares victory even if all attempts are used up.
 
 ### Fixed bugs
 
-xxxxxx
+Previously, the game would end after displaying only 9 words instead of the intended 10, leading to an unexpected victory. This issue has now been resolved.
 
 # Deployment
 
@@ -338,13 +384,31 @@ Click the Fork button in the top right corner.
 __________________________________________________________________________________________________________
 
 # Credits
-xxxxxx
+
+### Youtube Channels
+
+[Programming with Mosh](https://www.youtube.com/@programmingwithmosh)
+
+[Kevin Stratvert](https://www.youtube.com/@KevinStratvert)
+
+[Tech With Tim](https://www.youtube.com/@TechWithTim)
 
 ### Code
 
-xxxxxx
+[Stackoverflow](https://stackoverflow.com/)
+
+*Used for Python-related solutions.*
+
+[Colorama](https://pypi.org/project/colorama/)
+
+*Employed for colored terminal text and cursor positioning.*
+
 
 ### Acknowledgements
 
-xxxxxx
+I would like to acknowledge the following people who helped me along with this project:
+
+* Graeme Taylor - My Mentor.
+
+* Kristyna - My Cohort facilitator. 
 
