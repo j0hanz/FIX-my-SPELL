@@ -24,7 +24,7 @@ Constant Varibles
 
 """
 MAX_ATTEMPTS = 3
-WORDS_TO_PLAY = 10
+WORDS_TO_PLAY = 11
 DISPLAY_CURRENT_WORD = 1
 RED_LINE = Fore.RED + color.BOLD + word_art.line + color.END + Fore.RESET
 GREEN_LINE = Fore.GREEN + color.BOLD + word_art.line + color.END + Fore.RESET
@@ -56,6 +56,7 @@ def remove_line():
     """
 
     Move cursor to the beginning of the line
+    https://stackoverflow.com/questions/36520120/overwriting-clearing-previous-console-line
 
     """
     sys.stdout.write("\033[F")
@@ -81,8 +82,8 @@ def text_effect_fast(text):
 def text_effect(text):
     """
 
-    Create typing effect to improve user experience.
-    Targets messages.
+    Create typing effect to improve user experience,
+    slower writing compare to the above function.
 
     """
     for letter in text:
@@ -278,7 +279,7 @@ def display_wrong_answer(display_current, attempts, scrambled_word,
     """
 
     When User answered wrong, this function will run.
-     Also shows the correct word.
+    Also shows the correct word.
 
     """
 
@@ -342,7 +343,7 @@ def start_game():
         """
         word = choose_word(used_words)
 
-        if display_current == 10:
+        if display_current == words_to_play:
             game_over_victory()
 
         if attempts == 0:
