@@ -254,17 +254,17 @@ Complete all words successfully to achieve victory, or exhaust your attempts to 
 
   ![victory](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/92181512-1a50-49e3-bdc1-72ae4767032c)
 
+  *User wins the game once they reach 10 words with attempts remaining.*
+
   __________________________________________________________________________________________________________
 
 ##### Fail
 
   ![game_over](https://github.com/j0hanz/FIX-my-SPELL/assets/159924955/fa0710f7-a65f-40c5-9bd9-158e81d312e3)
 
+  *User loses the game if they answer incorrectly 3 times.*
+
   __________________________________________________________________________________________________________
-
-Enjoy and Learn:
-
-* Have fun while improving your vocabulary and spelling skills with this engaging and interactive game!"
 
 # Technologies used
 
