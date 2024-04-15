@@ -1,5 +1,7 @@
 """
-List of words
+
+List of words:
+I used ChatGPT to give me an example of words with minimum 6 letters and the maximum 9 letters.
 
 """
 
@@ -20,12 +22,39 @@ Words = [
     "brilliant",
     "homeless",
     "hospital",
-    "church",
     "bicycle",
     "umbrella",
     "location",
-    "outfit",
     "behavior",
     "couple",
     "private",
+    "diamond",
+    "journey",
+    "library",
+    "perfect",
+    "compass",
+    "harmony",
+    "chicken",
+    "mystery",
+    "justice",
+    "control",
+    "weather",
+    "lantern",
+    "excited",
+    "concert",
+    "dolphin",
+    "kitchen",
+    "balance",
+    "captain",
+    "silence",
+    "freedom",
+    "genuine",
+    "holiday",
+    "inspire",
+    "journey",
+    "kingdom",
+    "loyalty",
+    "network",
+    "airplane",
+    "partners",
 ]
