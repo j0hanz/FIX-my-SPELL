@@ -13,7 +13,7 @@
     - [User Goals](#user-goals)
   - [User Experience](#user-experience)
 - [Features](#features)
-  - [Future Implementations](future-implementations)
+  - [Future Implementations](#future-implementations)
 - [How to play](#how-to-play)
 - [Technologies used](#technologies-used)
 - [Testing](#testing)
