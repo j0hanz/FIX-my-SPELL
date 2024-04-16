@@ -55,7 +55,7 @@ def start_count():
 def remove_line():
     """
 
-    Move cursor to the beginning of the line
+    Clears the current line in the console.
     https://stackoverflow.com/questions/36520120/overwriting-clearing-previous-console-line
 
     """
@@ -253,9 +253,6 @@ def choose_word(used_words):
 
     """
     available_words = [word for word in Words if word not in used_words]
-    if not available_words:
-        print("End")
-        return random.choice(Words)
     return random.choice(available_words)
 
 
@@ -490,6 +487,12 @@ def main():
         start_game()
 
 
+'''
+
+This ensures that main() is only called when the script is executed directly.
+
+
+'''
 if __name__ == "__main__":
 
     main()
