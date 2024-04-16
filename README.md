@@ -328,6 +328,8 @@ The affected file only contains text displayed on top.
 
 * In a scenario where the user has only 1 attempt left and answers incorrectly for the last word shown, the game declares victory even if all attempts are used up.
 
+* Error messages stack up if the user repeatedly types invalid input.
+
 ### Fixed bugs
 
 Previously, the game would end after displaying only 9 words instead of the intended 10, leading to an unexpected victory. This issue has now been resolved.
